@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba30c3cc-4aa4-4d4b-a10b-4421cc417f94" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/applications/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/applications/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/courses/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/courses/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/courses/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/courses/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/schools/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/schools/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/schools/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/schools/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/users/serializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/serializer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/excourse_v1/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/excourse_v1/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/runtime.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/runtime.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/insertdata.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/insertdata.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/timediff.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/timediff.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api.md" beforeDir="false" afterPath="$PROJECT_DIR$/api.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,7 +199,7 @@
       <workItem from="1648434588850" duration="4287000" />
       <workItem from="1648439802772" duration="13409000" />
       <workItem from="1648459088427" duration="713000" />
-      <workItem from="1648466881165" duration="12915000" />
+      <workItem from="1648466881165" duration="13183000" />
     </task>
     <servers />
   </component>
