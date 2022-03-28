@@ -40,6 +40,15 @@ class viewtestmessage(APIView):
         res = sendMessage.substitutionComplete(teacher_name='郝高阳',manager_name="赵鸿序",mobile='13833916349')
         return Response(data=res,status=status.HTTP_204_NO_CONTENT)
 
+class viewtestinsertdata(APIView):
+    # permission_classes = [IsAuthenticated,GradeManagerPermission]
+    def get(self,request):
+        # print(request.data)
+        # school = self.request.user.school_id
+        from utils import insertdata
+        insertdata.test()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
 
 
 urlpatterns = [
@@ -57,7 +66,8 @@ urlpatterns = [
     path('test/', viewtest.as_view()),
 
 
-    path('testmessage/',viewtestmessage.as_view())
+    path('testmessage/',viewtestmessage.as_view()),
+    path('testinsertdata/',viewtestinsertdata.as_view()),
 
 ]
 

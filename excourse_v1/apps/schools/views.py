@@ -19,15 +19,20 @@ from .serializer import SchoolSerializer
 
 class FirstWeekSetView(APIView):
     permission_classes = [IsAuthenticated,GradeManagerPermission]
-    def get(self,request):
+    serializer_class = SchoolSerializer
+    def put(self,request,pk):
         date = request.data.get('date')
         try:
             date = datetime.datetime.strptime(date, '%Y-%m-%d')
-            self.request.user.school_id.first_week_date = date
-            self.request.user.school_id.save()
+            school = School.objects.get(id=pk)
+            # self.request.user.school_id.first_week_date = date
+            # self.request.user.school_id.save()
+            school.first_week_date = date
+            school.save()
         except Exception as e:
             return Response({'msg':"修改失败，请检查date参数"},status=status.HTTP_403_FORBIDDEN)
-        return Response({'msg':"修改成功！"},status=status.HTTP_200_OK)
+        ser = SchoolSerializer(school)
+        return Response(ser.data,status=status.HTTP_200_OK)
 
 
 class SchoolListView(ListAPIView,CreateAPIView):

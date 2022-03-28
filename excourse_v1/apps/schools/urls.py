@@ -5,7 +5,7 @@ urlpatterns = [
     path('schools/<pk>/', views.SchoolRetrieveView.as_view()),
 
 
-    path('schools/firstweek/', views.FirstWeekSetView.as_view()),
+    path('schools/firstweek/<pk>/', views.FirstWeekSetView.as_view()),
 
 
 ]

@@ -1,3 +1,5 @@
+import datetime
+
 from django.db.models import Q
 from django.shortcuts import render
 from rest_framework import status
@@ -19,7 +21,7 @@ from courses.models import Course
 
 
 
-class GradeManagerRaiseApplicationsView(CreateAPIView,UpdateAPIView):
+class GradeManagerRaiseApplicationsView(UpdateAPIView):
     permission_classes = [IsAuthenticated,GradeManagerPermission,]
     serializer_class = ApplicationsSerializer
     queryset = Application.objects.filter(type=1)
@@ -30,7 +32,7 @@ class GradeManagerRaiseApplicationsView(CreateAPIView,UpdateAPIView):
         为A发起一个代课请求，分配代课目标：添加applicant_course_id,handle_time,handler_id|发短信|换课
     '''
     def put(self, request, pk):
-        # todo 添加参数 handle_time,handler_id,target_course_id,accept,(cancel_reason)
+        # todo 添加参数 handle_time,handler_id,target_course_id,(cancel_reason)
         res = self.update(request, pk, partial=True)
         if request.data.get("cancel_reason",None):
             # todo 有cancel_reason 代表拒绝代课请求，默认帮目标方处理
@@ -50,31 +52,10 @@ class GradeManagerRaiseApplicationsView(CreateAPIView,UpdateAPIView):
             applicant_course.teacher_id,target_course.teacher_id = target_course.teacher_id,applicant_course.teacher_id
             return res
 
-    def post(self, request):
-        applicant_course_id = request.data.get('applicant_course_id',None)
-        try:
-            applicant_course_start_time = Course.objects.get(id=applicant_course_id).start_time
-        except Exception:
-            return Response({"msg":"提交的applicant_course_id"})
-        request.data['fail_time'] = applicant_course_start_time
-        res = self.create(request)
-        # todo 年级管理员发起的  代课请求 无法被拒接，直接修改课程表
-        applicant_course = Course.objects.get(id=res.data.get('applicant_course_id'))
-        target_course = Course.objects.get(id=res.data.get('target_course_id'))
-        applicant_course.teacher_id = target_course.teacher_id
-        # todo 代课处理完成，给双方短信
-        applicant_info = res.data.get('applicant_info')
-        target_info = res.data.get('applicant_info')
-        # ????????????????新模板??????????????????????
-        sendMessage.substitutionApplicant(applicant_name=applicant_info['teacher_name'],
-                                          manager_name=request.user.username, mobile=applicant_info['teacher_phone'])
-        sendMessage.substitutionTarget(applicant_name=applicant_info['teacher_name'],
-                                       target_name=target_info['teacher_name'], manager_name=request.user.username,
-                                       mobile=target_info['teacher_phone'])
-        return res
 
 
-class GradeManagerApplicationsView(ListAPIView):
+
+class GradeManagerApplicationsView(CreateAPIView,ListAPIView):
     permission_classes = [IsAuthenticated,GradeManagerPermission,]
     serializer_class = ApplicationsSerializer
     queryset = Application.objects.all()
@@ -92,6 +73,31 @@ class GradeManagerApplicationsView(ListAPIView):
         elif type == 'history':
             qs = Application.objects.filter(Q(handler_id=self.request.user.id)|Q(overdue=True)|Q(target_course_id__teacher_id=self.request.user.id,solver_confirm__in=[1,2],cancel_reason=None)|Q(applicant_course_id__teacher_id=self.request.user.id,solver_confirm__in=[1,2],applicant_confirm=1))
         return qs
+
+    def post(self, request):
+        applicant_course_id = request.data.get('applicant_course_id', None)
+        try:
+            applicant_course_start_time = Course.objects.get(id=applicant_course_id).start_time
+        except Exception:
+            return Response({"msg": "提交的applicant_course_id有误"})
+        request.data['fail_time'] = applicant_course_start_time
+        request.data['handler_id'] = self.request.user.id
+        request.data['handle_time'] = datetime.datetime.now()
+        res = self.create(request)
+        # todo 年级管理员发起的  代课请求 无法被拒接，直接修改课程表
+        applicant_course = Course.objects.get(id=res.data.get('applicant_course_id'))
+        target_course = Course.objects.get(id=res.data.get('target_course_id'))
+        applicant_course.teacher_id = target_course.teacher_id
+        # todo 代课处理完成，给双方短信
+        applicant_info = res.data.get('applicant_info')
+        target_info = res.data.get('applicant_info')
+        # ????????????????新模板??????????????????????
+        sendMessage.substitutionApplicant(applicant_name=applicant_info['teacher_name'],
+                                          manager_name=request.user.username, mobile=applicant_info['teacher_phone'])
+        sendMessage.substitutionTarget(applicant_name=applicant_info['teacher_name'],
+                                       target_name=target_info['teacher_name'], manager_name=request.user.username,
+                                       mobile=target_info['teacher_phone'])
+        return res
 
 class ApplicationsView(UpdateAPIView,CreateAPIView,ListAPIView):
     permission_classes = [IsAuthenticated]
@@ -133,7 +139,7 @@ class MineApplicationsView(ListAPIView):
         if not type or type not in ['target','applicant','history']:
             return Response({'msg':'type参数无效或未指定'},status=status.HTTP_404_NOT_FOUND)
         if type == 'target':
-            qs = Application.objects.fiter(solver_confirm=0,overdue=False,target_course_id__teacher_id=self.request.user.id,cancel_reason=None)
+            qs = Application.objects.filter(solver_confirm=0,overdue=False,target_course_id__teacher_id=self.request.user.id,cancel_reason=None)
         elif type == 'applicant':
             qs = Application.objects.filter(Q(applicant_course_id__teacher_id=self.request.user.id,solver_confirm=0,overdue=False)|
                                             Q(applicant_course_id__teacher_id=self.request.user.id,solver_confirm__in=[1,2],applicant_confirm=0,overdue=False))

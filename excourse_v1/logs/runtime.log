@@ -1268,3 +1268,525 @@ INFO 2022-03-28 16:32:57,127 basehttp 154 "POST /users/login/ HTTP/1.1" 200 228
 INFO 2022-03-28 16:33:11,158 basehttp 154 "POST /users/login/ HTTP/1.1" 200 231
 INFO 2022-03-28 17:15:35,649 autoreload 203 F:\LearningFiles\Django_restframework\excourse_v1\apps\applications\views.py changed, reloading.
 INFO 2022-03-28 17:15:38,034 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-28 19:21:55,769 autoreload 578 Watching for file changes with StatReloader
+ERROR 2022-03-28 19:22:02,582 log 228 Internal Server Error: /applications/mine/
+Traceback (most recent call last):
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\generics.py", line 199, in get
+    return self.list(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\applications\views.py", line 136, in get_queryset
+    qs = Application.objects.fiter(solver_confirm=0,overdue=False,target_course_id__teacher_id=self.request.user.id,cancel_reason=None)
+AttributeError: 'Manager' object has no attribute 'fiter'
+ERROR 2022-03-28 19:22:02,585 basehttp 154 "GET /applications/mine/?type=target&page=1&per_page=5 HTTP/1.1" 500 21735
+INFO 2022-03-28 19:22:48,687 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-28 19:28:31,919 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-28 19:29:38,724 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-28 19:29:41,775 basehttp 154 "GET /applications/mine/?type=target&page=1&per_page=5 HTTP/1.1" 200 52
+INFO 2022-03-28 19:29:44,213 basehttp 154 "GET /applications/mine/?type=target&page=1&per_page=5 HTTP/1.1" 200 52
+INFO 2022-03-28 19:30:21,199 basehttp 154 "GET /applications/mine/?type=applicant&page=1&per_page=5 HTTP/1.1" 200 52
+INFO 2022-03-28 19:30:48,579 basehttp 154 "POST /users/login/ HTTP/1.1" 200 231
+INFO 2022-03-28 19:30:54,352 basehttp 154 "GET /applications/mine/?type=target&page=1&per_page=5 HTTP/1.1" 200 52
+INFO 2022-03-28 19:30:58,468 basehttp 154 "GET /applications/mine/?type=applicant&page=1&per_page=5 HTTP/1.1" 200 52
+INFO 2022-03-28 19:31:36,737 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-28 19:33:05,049 basehttp 154 "POST /users/login/ HTTP/1.1" 200 228
+INFO 2022-03-28 19:33:16,995 basehttp 154 "POST /users/login/ HTTP/1.1" 200 217
+INFO 2022-03-28 19:33:24,387 basehttp 154 "POST /users/login/ HTTP/1.1" 200 217
+INFO 2022-03-28 19:33:27,086 basehttp 154 "POST /users/login/ HTTP/1.1" 200 228
+INFO 2022-03-28 19:34:43,256 basehttp 154 "POST /users/login/ HTTP/1.1" 200 228
+INFO 2022-03-28 19:34:59,024 basehttp 154 "POST /users/login/ HTTP/1.1" 200 228
+INFO 2022-03-28 19:36:22,284 basehttp 154 "GET /applications/mine/?type=applicant&page=1&per_page=5 HTTP/1.1" 200 52
+ERROR 2022-03-28 19:36:22,285 basehttp 154 "GET /applications/mine/?type=applicant&page=1&per_page=5 HTTP/1.1" 500 59
+INFO 2022-03-28 19:36:22,624 basehttp 154 "GET /applications/mine/?type=applicant&page=1&per_page=5 HTTP/1.1" 200 591
+INFO 2022-03-28 19:36:55,161 basehttp 154 "GET /applications/mine/?type=applicant&page=1&per_page=5 HTTP/1.1" 200 591
+INFO 2022-03-28 19:37:08,252 basehttp 154 "GET /applications/mine/?type=applicant&page=1&per_page=5 HTTP/1.1" 200 591
+INFO 2022-03-28 19:38:15,701 basehttp 154 "GET /applications/mine/?type=target&page=1&per_page=5 HTTP/1.1" 200 52
+INFO 2022-03-28 19:38:18,888 basehttp 154 "GET /applications/mine/?type=target&page=1&per_page=5 HTTP/1.1" 200 52
+INFO 2022-03-28 19:38:29,602 basehttp 154 "GET /applications/mine/?type=applicant&page=1&per_page=5 HTTP/1.1" 200 591
+INFO 2022-03-28 19:39:55,560 basehttp 154 "GET /applications/mine/?type=applicant&page=1&per_page=5 HTTP/1.1" 200 591
+INFO 2022-03-28 19:42:55,962 basehttp 154 "POST /users/login/ HTTP/1.1" 200 228
+INFO 2022-03-28 19:48:40,087 basehttp 154 "POST /users/login/ HTTP/1.1" 200 228
+INFO 2022-03-28 19:49:05,601 basehttp 154 "GET /applications/mine/?type=target&page=1&per_page=5 HTTP/1.1" 200 52
+INFO 2022-03-28 19:49:10,761 basehttp 154 "POST /users/login/ HTTP/1.1" 200 228
+INFO 2022-03-28 19:51:17,333 basehttp 154 "GET /applications/mine/?type=target&page=1&per_page=5 HTTP/1.1" 200 52
+INFO 2022-03-28 19:51:20,365 basehttp 154 "GET /applications/mine/?type=target&page=1&per_page=5 HTTP/1.1" 200 52
+INFO 2022-03-28 19:51:53,011 basehttp 154 "POST /users/login/ HTTP/1.1" 200 228
+INFO 2022-03-28 19:53:04,698 basehttp 154 "POST /users/login/ HTTP/1.1" 200 228
+WARNING 2022-03-28 19:53:10,553 log 228 Unauthorized: /applications/mine/
+WARNING 2022-03-28 19:53:10,554 basehttp 154 "GET /applications/mine/?type=target&page=1&per_page=5 HTTP/1.1" 401 38
+INFO 2022-03-28 20:27:14,705 basehttp 154 "POST /users/login/ HTTP/1.1" 200 228
+INFO 2022-03-28 20:27:19,276 basehttp 154 "GET /applications/mine/?type=target&page=1&per_page=5 HTTP/1.1" 200 717
+INFO 2022-03-28 20:28:17,801 basehttp 154 "GET /applications/mine/?type=target&page=1&per_page=5 HTTP/1.1" 200 717
+INFO 2022-03-28 20:28:53,227 basehttp 154 "POST /users/login/ HTTP/1.1" 200 228
+INFO 2022-03-28 20:29:39,366 basehttp 154 "GET /applications/mine/?type=target&page=1&per_page=5 HTTP/1.1" 200 717
+INFO 2022-03-28 20:32:51,213 basehttp 154 "POST /applications/ HTTP/1.1" 201 530
+INFO 2022-03-28 20:36:37,159 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\courses\views.py changed, reloading.
+INFO 2022-03-28 20:36:40,455 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-28 20:38:23,575 autoreload 578 Watching for file changes with StatReloader
+WARNING 2022-03-28 20:38:32,395 log 228 Unauthorized: /courses/
+WARNING 2022-03-28 20:38:32,396 basehttp 154 "GET /courses/ HTTP/1.1" 401 43
+ERROR 2022-03-28 20:38:47,537 log 228 Internal Server Error: /courses/
+Traceback (most recent call last):
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\generics.py", line 199, in get
+    return self.list(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\courses\views.py", line 40, in get_queryset
+    course_qs = course_qs.objects.filter(**course_filters)
+AttributeError: 'QuerySet' object has no attribute 'objects'
+ERROR 2022-03-28 20:38:47,540 basehttp 154 "GET /courses/ HTTP/1.1" 500 21702
+INFO 2022-03-28 20:39:20,760 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\courses\views.py changed, reloading.
+INFO 2022-03-28 20:39:22,629 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-28 20:39:34,077 basehttp 154 "GET /courses/?page=1&per_page=5 HTTP/1.1" 200 1840
+WARNING 2022-03-28 20:44:45,085 log 228 Bad Request: /courses/
+WARNING 2022-03-28 20:44:45,086 basehttp 154 "GET /courses/?page=1&per_page=5 HTTP/1.1" 400 107
+WARNING 2022-03-28 20:45:12,855 log 228 Bad Request: /courses/
+WARNING 2022-03-28 20:45:12,855 basehttp 154 "GET /courses/?page=1&per_page=5 HTTP/1.1" 400 107
+INFO 2022-03-28 20:45:21,728 basehttp 154 "GET /courses/?page=1&per_page=5 HTTP/1.1" 200 1799
+WARNING 2022-03-28 20:46:06,144 log 228 Bad Request: /courses/
+WARNING 2022-03-28 20:46:06,145 basehttp 154 "GET /courses/?page=1&per_page=5 HTTP/1.1" 400 109
+INFO 2022-03-28 20:46:11,821 basehttp 154 "GET /courses/?page=1&per_page=5 HTTP/1.1" 200 1799
+INFO 2022-03-28 20:46:37,904 basehttp 154 "GET /courses/?page=1&per_page=5 HTTP/1.1" 200 1843
+INFO 2022-03-28 20:50:20,983 basehttp 154 "GET /courses/choices/0?page=1&per_page=5 HTTP/1.1" 301 0
+WARNING 2022-03-28 20:50:21,314 log 228 Not Found: /courses/choices/0/
+WARNING 2022-03-28 20:50:21,314 basehttp 154 "GET /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 404 53
+INFO 2022-03-28 20:50:48,834 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\courses\views.py changed, reloading.
+INFO 2022-03-28 20:50:50,869 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-28 20:50:52,945 basehttp 154 "GET /courses/choices/0?page=1&per_page=5 HTTP/1.1" 301 0
+WARNING 2022-03-28 20:50:53,244 log 228 Not Found: /courses/choices/0/
+WARNING 2022-03-28 20:50:53,245 basehttp 154 "GET /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 404 53
+INFO 2022-03-28 20:51:20,759 basehttp 154 "GET /courses/choices/0?page=1&per_page=5 HTTP/1.1" 301 0
+WARNING 2022-03-28 20:51:21,026 log 228 Not Found: /courses/choices/0/
+WARNING 2022-03-28 20:51:21,027 basehttp 154 "GET /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 404 53
+INFO 2022-03-28 20:51:30,285 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-28 20:51:33,443 basehttp 154 "GET /courses/choices/0?page=1&per_page=5 HTTP/1.1" 301 0
+WARNING 2022-03-28 20:52:37,147 log 228 Not Found: /courses/choices/0/
+WARNING 2022-03-28 20:52:37,147 basehttp 154 "GET /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 404 53
+INFO 2022-03-28 20:53:13,062 basehttp 154 "GET /courses/choices/0?page=1&per_page=5 HTTP/1.1" 301 0
+WARNING 2022-03-28 20:54:15,090 log 228 Not Found: /courses/choices/0/
+WARNING 2022-03-28 20:54:15,091 basehttp 154 "GET /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 404 53
+INFO 2022-03-28 20:54:55,228 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\courses\views.py changed, reloading.
+INFO 2022-03-28 20:54:58,275 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-28 20:55:09,442 autoreload 578 Watching for file changes with StatReloader
+ERROR 2022-03-28 20:55:28,317 log 228 Internal Server Error: /courses/choices/0
+Traceback (most recent call last):
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\utils\deprecation.py", line 93, in __call__
+    response = self.process_request(request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\middleware\common.py", line 53, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\middleware\common.py", line 93, in get_full_path_with_slash
+    'url': request.get_host() + new_path,
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/courses/choices/0/?page=1&per_page=5 (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2022-03-28 20:55:28,319 basehttp 154 "POST /courses/choices/0?page=1&per_page=5 HTTP/1.1" 500 75914
+INFO 2022-03-28 20:55:38,831 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\courses\views.py changed, reloading.
+INFO 2022-03-28 20:55:42,012 autoreload 578 Watching for file changes with StatReloader
+ERROR 2022-03-28 20:55:58,521 log 228 Internal Server Error: /courses/choices/0
+Traceback (most recent call last):
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\utils\deprecation.py", line 93, in __call__
+    response = self.process_request(request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\middleware\common.py", line 53, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\middleware\common.py", line 93, in get_full_path_with_slash
+    'url': request.get_host() + new_path,
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/courses/choices/0/?page=1&per_page=5 (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+ERROR 2022-03-28 20:55:58,523 basehttp 154 "POST /courses/choices/0?page=1&per_page=5 HTTP/1.1" 500 75914
+INFO 2022-03-28 20:56:03,135 basehttp 154 "GET /courses/choices/0?page=1&per_page=5 HTTP/1.1" 301 0
+WARNING 2022-03-28 20:58:45,001 log 228 Not Found: /courses/choices/0/
+WARNING 2022-03-28 20:58:45,001 basehttp 154 "GET /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 404 53
+INFO 2022-03-28 20:58:52,862 basehttp 154 "GET /courses/choices/0?page=1&per_page=5 HTTP/1.1" 301 0
+WARNING 2022-03-28 20:58:56,968 log 228 Not Found: /courses/choices/0/
+WARNING 2022-03-28 20:58:56,969 basehttp 154 "GET /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 404 53
+INFO 2022-03-28 20:59:12,056 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-28 20:59:15,606 basehttp 154 "GET /courses/choices/0?page=1&per_page=5 HTTP/1.1" 301 0
+WARNING 2022-03-28 21:00:56,547 log 228 Not Found: /courses/choices/0/
+WARNING 2022-03-28 21:00:56,548 basehttp 154 "GET /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 404 53
+INFO 2022-03-28 21:02:15,159 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-28 21:02:20,487 basehttp 154 "GET /courses/choices/0?page=1&per_page=5 HTTP/1.1" 301 0
+WARNING 2022-03-28 21:03:08,689 log 228 Not Found: /courses/choices/0/
+WARNING 2022-03-28 21:03:08,690 basehttp 154 "GET /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 404 53
+INFO 2022-03-28 21:03:46,453 basehttp 154 "GET /courses/choices/0?page=1&per_page=5 HTTP/1.1" 301 0
+WARNING 2022-03-28 21:03:51,545 log 228 Not Found: /courses/choices/0/
+WARNING 2022-03-28 21:03:51,546 basehttp 154 "GET /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 404 53
+INFO 2022-03-28 21:04:05,990 basehttp 154 "GET /courses/choices/0?page=1&per_page=5 HTTP/1.1" 301 0
+WARNING 2022-03-28 21:04:16,482 log 228 Not Found: /courses/choices/0/
+WARNING 2022-03-28 21:04:16,482 basehttp 154 "GET /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 404 53
+INFO 2022-03-28 21:04:27,365 basehttp 154 "GET /courses/choices/0?page=1&per_page=5 HTTP/1.1" 301 0
+WARNING 2022-03-28 21:04:32,802 log 228 Not Found: /courses/choices/0/
+WARNING 2022-03-28 21:04:32,803 basehttp 154 "GET /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 404 53
+INFO 2022-03-28 21:05:06,272 basehttp 154 "GET /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 200 28770
+INFO 2022-03-28 21:07:01,740 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\utils\insertdata.py changed, reloading.
+INFO 2022-03-28 21:07:04,709 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-28 21:11:35,343 basehttp 154 "GET /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 200 28770
+ERROR 2022-03-28 21:11:35,345 basehttp 154 "GET /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 500 59
+INFO 2022-03-28 21:15:33,783 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-28 21:16:43,010 basehttp 154 "GET /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 200 20393
+INFO 2022-03-28 21:17:26,573 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\courses\views.py changed, reloading.
+INFO 2022-03-28 21:17:29,780 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-28 21:17:38,923 basehttp 154 "GET /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 200 20393
+INFO 2022-03-28 21:18:21,699 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\courses\views.py changed, reloading.
+INFO 2022-03-28 21:18:24,924 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-28 21:19:27,985 basehttp 154 "GET /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 200 20393
+INFO 2022-03-28 21:19:52,591 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\courses\views.py changed, reloading.
+INFO 2022-03-28 21:19:55,690 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-28 21:20:07,082 basehttp 154 "GET /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 200 20393
+INFO 2022-03-28 21:22:13,486 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\courses\views.py changed, reloading.
+INFO 2022-03-28 21:22:16,518 autoreload 578 Watching for file changes with StatReloader
+ERROR 2022-03-28 21:22:19,937 log 228 Internal Server Error: /courses/choices/0/
+Traceback (most recent call last):
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\courses\views.py", line 93, in get
+    qs = self.get_queryset(type)
+  File "F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\courses\views.py", line 58, in get_queryset
+    course_id = request.data.get('applicant_course_id', None)
+NameError: name 'request' is not defined
+ERROR 2022-03-28 21:22:19,942 basehttp 154 "GET /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 500 22810
+INFO 2022-03-28 21:22:35,071 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\courses\views.py changed, reloading.
+INFO 2022-03-28 21:22:38,338 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-28 21:22:59,975 basehttp 154 "GET /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 200 20393
+INFO 2022-03-28 21:23:17,665 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\courses\views.py changed, reloading.
+INFO 2022-03-28 21:23:20,755 autoreload 578 Watching for file changes with StatReloader
+ERROR 2022-03-28 21:23:23,926 log 228 Internal Server Error: /courses/choices/0/
+Traceback (most recent call last):
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\generics.py", line 199, in get
+    return self.list(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+TypeError: get_queryset() missing 1 required positional argument: 'type'
+ERROR 2022-03-28 21:23:23,930 basehttp 154 "GET /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 500 22838
+INFO 2022-03-28 21:24:48,480 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\courses\views.py changed, reloading.
+INFO 2022-03-28 21:24:51,816 autoreload 578 Watching for file changes with StatReloader
+ERROR 2022-03-28 21:24:57,352 log 228 Internal Server Error: /courses/choices/0/
+Traceback (most recent call last):
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\courses\views.py", line 54, in get
+    return self.list(request, type)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+TypeError: get_queryset() missing 1 required positional argument: 'type'
+ERROR 2022-03-28 21:24:57,357 basehttp 154 "GET /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 500 22844
+INFO 2022-03-28 21:26:02,954 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\courses\views.py changed, reloading.
+INFO 2022-03-28 21:26:06,075 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-28 21:28:10,779 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\courses\views.py changed, reloading.
+INFO 2022-03-28 21:28:13,765 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-28 21:28:24,578 basehttp 154 "GET /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 200 1859
+INFO 2022-03-28 21:28:44,265 basehttp 154 "GET /courses/choices/0/?page=1&per_page=15 HTTP/1.1" 200 3628
+INFO 2022-03-28 21:29:02,378 basehttp 154 "GET /courses/choices/0/?page=1&per_page=26 HTTP/1.1" 200 3628
+INFO 2022-03-28 21:29:14,679 basehttp 154 "GET /courses/choices/0/?page=1&per_page=30 HTTP/1.1" 200 3628
+INFO 2022-03-28 21:29:31,025 basehttp 154 "GET /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 200 1859
+INFO 2022-03-28 21:41:22,317 basehttp 154 "GET /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 200 1872
+ERROR 2022-03-28 21:41:22,318 basehttp 154 "GET /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 500 59
+INFO 2022-03-28 21:44:42,334 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-28 21:45:22,166 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-28 21:47:00,039 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\courses\views.py changed, reloading.
+INFO 2022-03-28 21:47:03,728 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-28 21:47:45,791 basehttp 154 "GET /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 200 1863
+INFO 2022-03-28 21:49:16,084 basehttp 154 "GET /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 200 1863
+INFO 2022-03-28 21:50:15,005 basehttp 154 "GET /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 200 1857
+INFO 2022-03-28 21:50:51,174 basehttp 154 "GET /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 200 1857
+ERROR 2022-03-28 21:50:55,607 log 228 Internal Server Error: /courses/choices/1/
+Traceback (most recent call last):
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\generics.py", line 199, in get
+    return self.list(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\courses\views.py", line 88, in get_queryset
+    qs = qs.order_by('week')
+UnboundLocalError: local variable 'qs' referenced before assignment
+ERROR 2022-03-28 21:50:55,609 basehttp 154 "GET /courses/choices/1/?page=1&per_page=5 HTTP/1.1" 500 22978
+INFO 2022-03-28 21:54:50,740 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\courses\views.py changed, reloading.
+INFO 2022-03-28 21:54:54,165 autoreload 578 Watching for file changes with StatReloader
+ERROR 2022-03-28 21:55:14,065 log 228 Internal Server Error: /courses/choices/1/
+Traceback (most recent call last):
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\generics.py", line 199, in get
+    return self.list(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\courses\views.py", line 88, in get_queryset
+    class_id = Class.objects.get(grade=applicant_course.class_id.grade).id
+  File "H:\Anaconda\envs\django\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\db\models\query.py", line 412, in get
+    (self.model._meta.object_name, num)
+classes.models.Class.MultipleObjectsReturned: get() returned more than one Class -- it returned 7!
+ERROR 2022-03-28 21:55:14,070 basehttp 154 "GET /courses/choices/1/?page=1&per_page=5 HTTP/1.1" 500 23363
+INFO 2022-03-28 21:56:09,005 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\courses\views.py changed, reloading.
+INFO 2022-03-28 21:56:12,132 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-28 21:56:15,404 basehttp 154 "GET /courses/choices/1/?page=1&per_page=5 HTTP/1.1" 200 1866
+INFO 2022-03-28 21:56:57,400 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\courses\views.py changed, reloading.
+INFO 2022-03-28 21:57:00,906 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-28 21:58:31,439 basehttp 154 "GET /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 200 1856
+INFO 2022-03-28 21:58:56,591 basehttp 154 "POST /applications/ HTTP/1.1" 201 665
+INFO 2022-03-28 21:59:20,323 basehttp 154 "GET /courses/choices/1/?page=1&per_page=5 HTTP/1.1" 200 1862
+INFO 2022-03-28 21:59:40,571 basehttp 154 "POST /applications/ HTTP/1.1" 201 540
+INFO 2022-03-28 22:12:12,552 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\excourse_v1\urls.py changed, reloading.
+INFO 2022-03-28 22:12:15,816 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-28 22:12:50,750 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-28 22:19:41,936 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-28 22:20:09,665 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-28 22:20:18,996 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-28 22:28:51,480 basehttp 154 "GET /testinsertdata/ HTTP/1.1" 204 0
+ERROR 2022-03-28 22:28:51,481 basehttp 154 "GET /testinsertdata/ HTTP/1.1" 500 59
+INFO 2022-03-28 23:16:02,541 basehttp 154 "GET /applications/mine/?type=applicant&page=1&per_page=5 HTTP/1.1" 200 717
+ERROR 2022-03-28 23:17:07,522 log 228 Internal Server Error: /applications/2/
+Traceback (most recent call last):
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 511, in dispatch
+    self.response = self.finalize_response(request, response, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 426, in finalize_response
+    % type(response)
+AssertionError: Expected a `Response`, `HttpResponse` or `HttpStreamingResponse` to be returned from the view, but received a `<class 'NoneType'>`
+ERROR 2022-03-28 23:17:07,525 basehttp 154 "PUT /applications/2/ HTTP/1.1" 500 90849
+INFO 2022-03-28 23:17:44,021 basehttp 154 "PUT /applications/3/ HTTP/1.1" 200 665
+INFO 2022-03-28 23:18:15,663 basehttp 154 "PUT /applications/2/ HTTP/1.1" 200 530
+INFO 2022-03-28 23:21:52,546 basehttp 154 "POST /applications/ HTTP/1.1" 201 663
+INFO 2022-03-28 23:28:43,731 basehttp 154 "POST /users/login/ HTTP/1.1" 200 233
+INFO 2022-03-28 23:28:59,135 basehttp 154 "GET /applications/manager/?type=substitution&page=1&per_page=5 HTTP/1.1" 200 1123
+INFO 2022-03-28 23:30:40,674 basehttp 154 "GET /applications/manager/?type=substitution&page=1&per_page=5 HTTP/1.1" 200 1123
+INFO 2022-03-28 23:32:01,110 basehttp 154 "GET /applications/manager/?type=substitution&page=1&per_page=5 HTTP/1.1" 200 1123
+INFO 2022-03-28 23:32:09,166 basehttp 154 "GET /applications/manager/?type=substitution&page=1&per_page=5 HTTP/1.1" 200 1123
+INFO 2022-03-28 23:32:15,975 basehttp 154 "GET /applications/manager/?type=substitution&page=1&per_page=5 HTTP/1.1" 200 1123
+INFO 2022-03-28 23:35:02,402 basehttp 154 "GET /courses/choices/1/?page=1&per_page=5 HTTP/1.1" 200 1866
+INFO 2022-03-28 23:36:53,785 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\applications\views.py changed, reloading.
+INFO 2022-03-28 23:36:57,515 autoreload 578 Watching for file changes with StatReloader
+WARNING 2022-03-28 23:37:05,542 log 228 Unauthorized: /applications/manager/11/
+WARNING 2022-03-28 23:37:05,543 basehttp 154 "GET /applications/manager/11/ HTTP/1.1" 401 43
+WARNING 2022-03-28 23:37:18,801 log 228 Method Not Allowed: /applications/manager/11/
+WARNING 2022-03-28 23:37:18,802 basehttp 154 "GET /applications/manager/11/ HTTP/1.1" 405 45
+WARNING 2022-03-28 23:37:22,567 log 228 Not Found: /applications/manager/11/
+WARNING 2022-03-28 23:37:22,568 basehttp 154 "PUT /applications/manager/11/ HTTP/1.1" 404 25
+INFO 2022-03-28 23:37:44,285 basehttp 154 "PUT /applications/manager/4/ HTTP/1.1" 200 689
+INFO 2022-03-28 23:46:08,581 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\applications\views.py changed, reloading.
+INFO 2022-03-28 23:46:11,707 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-28 23:48:02,372 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\applications\views.py changed, reloading.
+INFO 2022-03-28 23:48:05,527 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-28 23:48:40,554 basehttp 154 "GET /courses/choices/1/?page=1&per_page=5 HTTP/1.1" 200 1863
+INFO 2022-03-28 23:48:54,121 basehttp 154 "POST /applications/manager/ HTTP/1.1" 201 663
+INFO 2022-03-29 00:01:25,107 basehttp 154 "GET /users/5/ HTTP/1.1" 200 445
+INFO 2022-03-29 00:03:28,179 basehttp 154 "PUT /users/1/ HTTP/1.1" 200 445
+WARNING 2022-03-29 00:10:28,164 log 228 Not Found: /schools/firstweek/2/
+WARNING 2022-03-29 00:10:28,165 basehttp 154 "GET /schools/firstweek/2/ HTTP/1.1" 404 4811
+INFO 2022-03-29 00:10:48,361 autoreload 578 Watching for file changes with StatReloader
+WARNING 2022-03-29 00:10:52,329 log 228 Not Found: /schools/firstweek/2/
+WARNING 2022-03-29 00:10:52,329 basehttp 154 "GET /schools/firstweek/2/ HTTP/1.1" 404 4811
+INFO 2022-03-29 00:11:25,961 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\schools\urls.py changed, reloading.
+INFO 2022-03-29 00:11:28,013 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-29 00:11:43,452 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\schools\views.py changed, reloading.
+INFO 2022-03-29 00:11:45,507 autoreload 578 Watching for file changes with StatReloader
+ERROR 2022-03-29 00:11:53,162 log 228 Internal Server Error: /schools/firstweek/2/
+Traceback (most recent call last):
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: put() got an unexpected keyword argument 'pk'
+ERROR 2022-03-29 00:11:53,164 basehttp 154 "PUT /schools/firstweek/2/ HTTP/1.1" 500 21281
+INFO 2022-03-29 00:12:30,250 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\schools\views.py changed, reloading.
+INFO 2022-03-29 00:12:32,281 autoreload 578 Watching for file changes with StatReloader
+WARNING 2022-03-29 00:13:40,416 log 228 Method Not Allowed: /schools/firstweek/2/
+WARNING 2022-03-29 00:13:40,417 basehttp 154 "GET /schools/firstweek/2/ HTTP/1.1" 405 45
+ERROR 2022-03-29 00:13:44,463 log 228 Internal Server Error: /schools/firstweek/2/
+Traceback (most recent call last):
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: put() got an unexpected keyword argument 'pk'
+ERROR 2022-03-29 00:13:44,464 basehttp 154 "PUT /schools/firstweek/2/ HTTP/1.1" 500 21281
+INFO 2022-03-29 00:15:56,673 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\schools\views.py changed, reloading.
+INFO 2022-03-29 00:15:58,532 autoreload 578 Watching for file changes with StatReloader
+ERROR 2022-03-29 00:16:01,738 log 228 Internal Server Error: /schools/firstweek/2/
+Traceback (most recent call last):
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: put() got an unexpected keyword argument 'pk'
+ERROR 2022-03-29 00:16:01,740 basehttp 154 "PUT /schools/firstweek/2/ HTTP/1.1" 500 21281
+INFO 2022-03-29 00:18:57,136 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\schools\views.py changed, reloading.
+INFO 2022-03-29 00:18:59,008 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-29 00:19:01,605 basehttp 154 "PUT /schools/firstweek/2/ HTTP/1.1" 200 25
+INFO 2022-03-29 00:19:38,329 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\schools\views.py changed, reloading.
+INFO 2022-03-29 00:19:40,297 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-29 00:19:42,662 basehttp 154 "PUT /schools/firstweek/2/ HTTP/1.1" 200 295
+INFO 2022-03-29 00:21:38,701 basehttp 154 "GET /schools/ HTTP/1.1" 200 652
+INFO 2022-03-29 00:22:25,724 basehttp 154 "GET /schools/1/ HTTP/1.1" 200 304
+INFO 2022-03-29 00:24:00,545 basehttp 154 "PUT /schools/2/ HTTP/1.1" 200 295

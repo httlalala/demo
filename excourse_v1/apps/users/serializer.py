@@ -6,7 +6,7 @@ from rest_framework_jwt.settings import api_settings
 import datetime
 from users.models import User
 from verifications.models import SMSCode
-from utils.timediff import utf2local
+from utils.timediff import utc2local
 
 class UpdateUserSerializer(serializers.ModelSerializer):
     sms_code = serializers.CharField(write_only=True, required=False)
@@ -74,7 +74,7 @@ class CreateUserSerializer(serializers.ModelSerializer):
             real_code = SMSCode.objects.get(phone=phone)
         except SMSCode.DoesNotExist:
             raise serializers.ValidationError('验证码错误')
-        timediff = (datetime.datetime.now() -utf2local(real_code.update_time)).seconds
+        timediff = (datetime.datetime.now() -utc2local(real_code.update_time)).seconds
         if timediff > 300:
             raise serializers.ValidationError('验证码已经失效')
         elif real_code.code != sms_code:

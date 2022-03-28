@@ -6,6 +6,7 @@ from users.models import User
 from classes.models import Class
 from schools.models import School
 from courses.models import Course
+from utils.timediff import utc2local
 
 '''
 
@@ -20,7 +21,7 @@ def test():
     week_start = 1
     school = School.objects.get(id=1)
     school_id = 1
-    week_num = 5
+    week_num = school.week_num
     first_week_date = school.first_week_date
 
     import xlrd
@@ -88,7 +89,7 @@ def test():
                                                                   hours=time2datetime.hour,
                                                                   minutes=time2datetime.minute)
                                     # 实际时间=第一周时间+timedelta
-                                    time_list.append(first_week_date + timediff)
+                                    time_list.append(utc2local(first_week_date + timediff))
 
                                 try:
                                     course = Course.objects.get(teacher_id=teacher_obj,week=week, weekday=weekday, order=order)
@@ -144,7 +145,6 @@ def generateData(school_id, filename, week_start):
             class_obj = Class.objects.get(school_id=school, grade=grade, class_number=class_number)
         except Class.DoesNotExist:
             class_obj = Class.objects.create(school_id=school, grade=grade, class_number=class_number)
-
         try:
             with transaction.atomic():
                 for j in range(len(weekday_indexes)):
@@ -161,7 +161,7 @@ def generateData(school_id, filename, week_start):
                             try:
                                 teacher_obj = User.objects.get(school_id=school, username=teacher_name)
                             except User.DoesNotExist:
-                                teacher_obj = User.objects.create(phone='111111%s' % str(time.time())[-5:],
+                                teacher_obj = User.objects.create(phone='111111%s' % str(TIME.time())[-5:],
                                                                   school_id=school, username=teacher_name)
                                 teacher_obj.set_password("123")
                                 teacher_obj.save()
@@ -176,7 +176,7 @@ def generateData(school_id, filename, week_start):
                                 time_str = sheet.cell_value(order_indexes[i], 2).split('--')
                                 time_list = []  # 上课时间，下课时间
                                 for time in time_str:
-                                    time=time.replace(" ", "")
+                                    time=time.replace(" ","")
                                     time=time.replace("：", ":")
                                     time2datetime = datetime.datetime.strptime(time, '%H:%M')  # 文字转datetime
                                     # datetime 转 timedelta
@@ -184,10 +184,11 @@ def generateData(school_id, filename, week_start):
                                                                   hours=time2datetime.hour,
                                                                   minutes=time2datetime.minute)
                                     # 实际时间=第一周时间+timedelta
-                                    time_list.append(first_week_date + timediff)
+                                    time_list.append(utc2local(first_week_date + timediff))
+
 
                                 try:
-                                    course = Course.objects.get(week=week, weekday=weekday, order=order)
+                                    course = Course.objects.get(teacher_id=teacher_obj,week=week, weekday=weekday, order=order)
                                     course.name = course_name
                                     course.teacher_id = teacher_obj
                                     course.class_id = class_obj
@@ -198,7 +199,6 @@ def generateData(school_id, filename, week_start):
                                     Course.objects.create(name=course_name, teacher_id=teacher_obj, class_id=class_obj,
                                                           week=week, weekday=weekday, order=order,
                                                           start_time=time_list[0], end_time=time_list[1])
-
         except Exception as e:
             raise e
             return 0
