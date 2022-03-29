@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from rest_framework import status
 from rest_framework.generics import ListAPIView,CreateAPIView,RetrieveAPIView,UpdateAPIView,DestroyAPIView
 from rest_framework.generics import ListCreateAPIView,RetrieveUpdateDestroyAPIView,GenericAPIView
 from rest_framework.permissions import IsAuthenticated
@@ -13,7 +14,16 @@ from .serializer import CreateUserSerializer,UpdateUserSerializer
 # Create your views here.
 
 
-
+class CheckUsername(APIView):
+    def get(self,request):
+        phone = request.data.get('phone')
+        school_id = request.data.get('school_id')
+        try:
+            user = User.objects.get(phone=phone,school_id=school_id)
+        except User.DoesNotExist:
+            return Response({"msg":'用户名可用'},status=status.HTTP_200_OK)
+        if user:
+            return Response({"msg": '用户名已存在！'}, status=status.HTTP_403_FORBIDDEN)
 
 class RegisterView(CreateAPIView):
     serializer_class = CreateUserSerializer
