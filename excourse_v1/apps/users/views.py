@@ -16,10 +16,10 @@ from .serializer import CreateUserSerializer,UpdateUserSerializer
 
 class CheckUsername(APIView):
     def get(self,request):
-        phone = request.data.get('phone')
+        username = request.data.get('username')
         school_id = request.data.get('school_id')
         try:
-            user = User.objects.get(phone=phone,school_id=school_id)
+            user = User.objects.get(username=username,school_id=school_id)
         except User.DoesNotExist:
             return Response({"msg":'用户名可用'},status=status.HTTP_200_OK)
         if user:

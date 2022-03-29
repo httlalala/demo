@@ -1790,3 +1790,8 @@ INFO 2022-03-29 00:19:42,662 basehttp 154 "PUT /schools/firstweek/2/ HTTP/1.1" 2
 INFO 2022-03-29 00:21:38,701 basehttp 154 "GET /schools/ HTTP/1.1" 200 652
 INFO 2022-03-29 00:22:25,724 basehttp 154 "GET /schools/1/ HTTP/1.1" 200 304
 INFO 2022-03-29 00:24:00,545 basehttp 154 "PUT /schools/2/ HTTP/1.1" 200 295
+INFO 2022-03-29 11:21:28,394 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-29 11:22:02,186 basehttp 154 "GET /users/check/ HTTP/1.1" 200 25
+INFO 2022-03-29 11:22:58,400 basehttp 154 "GET /users/check/ HTTP/1.1" 200 25
+INFO 2022-03-29 11:24:20,945 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-29 11:24:41,028 autoreload 578 Watching for file changes with StatReloader
