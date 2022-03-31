@@ -1,7 +1,11 @@
 import json
+import logging
 from quopri import quote
 from urllib import request, parse
 from django.conf import settings
+
+
+
 
 def sendTemplateSMS(name,code,mobile):
     if not settings.MESSAGE_CAN_USE:
@@ -19,6 +23,7 @@ def sendTemplateSMS(name,code,mobile):
         return eval(data)
     except Exception as error:
         return {'stat':403,'msg':'发送失败'}
+
 
 def substitutionComplete(teacher_name,manager_name,mobile):
     if not settings.MESSAGE_CAN_USE:
@@ -100,3 +105,50 @@ def exchangeApplicant(applicant_name,target_name,mobile):
         return {'stat': 403, 'msg': '发送失败'}
 
 
+def exchangeTarget(applicant_name,target_name,mobile):
+    if not settings.MESSAGE_CAN_USE:
+        return {'stat':100}
+    uid = 'rochelimit'
+    pwd = 'ce6d5daef224ee974b6a4502995ef226'
+    content={"t1":applicant_name,"t2":target_name}
+    content = parse.quote(json.dumps(content))
+    # 拼接URL
+    url = 'http://api.sms.cn/sms/?ac=send&uid='+uid+'&pwd='+pwd+'&template=551403'+'&mobile='+mobile+'&content='+content
+    # 生成auth
+    try:
+        res = request.urlopen(url)
+        data = res.read()
+        res.close()
+        return eval(data)
+    except Exception as error:
+        print(error)
+        return {'stat': 403, 'msg': '发送失败'}
+
+
+def substitutionManager(applicant_name,grade):
+    if not settings.MESSAGE_CAN_USE:
+        return {'stat':100}
+
+    from users.models import User
+    try:
+        manager = User.objects.get(is_grade=grade)
+    except Exception as e:
+        logging.info(e)
+        return {'stat': 403, 'msg': '发送失败'}
+
+    uid = 'rochelimit'
+    pwd = 'ce6d5daef224ee974b6a4502995ef226'
+    mobile = manager.phone
+    content={"teacher":applicant_name,"admin":manager.username}
+    content = parse.quote(json.dumps(content))
+    # 拼接URL
+    url = 'http://api.sms.cn/sms/?ac=send&uid='+uid+'&pwd='+pwd+'&template=551405'+'&mobile='+mobile+'&content='+content
+    # 生成auth
+    try:
+        res = request.urlopen(url)
+        data = res.read()
+        res.close()
+        return eval(data)
+    except Exception as error:
+        print(error)
+        return {'stat': 403, 'msg': '发送失败'}

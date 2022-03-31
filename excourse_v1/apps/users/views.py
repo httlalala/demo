@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import status
 from rest_framework.generics import ListAPIView,CreateAPIView,RetrieveAPIView,UpdateAPIView,DestroyAPIView
 from rest_framework.generics import ListCreateAPIView,RetrieveUpdateDestroyAPIView,GenericAPIView
@@ -6,6 +7,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from utils.permission import GradeManagerPermission, SuperManagerPermission
 from .models import User
 from .serializer import CreateUserSerializer,UpdateUserSerializer
 
@@ -34,11 +36,22 @@ class UserInfoView(UpdateAPIView,RetrieveAPIView):
     queryset = User.objects.all()
 
     def put(self, request,pk):
-        if (not self.request.user.is_grade) and pk != self.request.user.id:
-            return Response({"msg":"您只能修改自己的信息!"},status=403)
+        if self.request.user.is_super == 0:
+            if (not self.request.user.is_grade) and pk != self.request.user.id:
+                return Response({"msg":"您只能修改自己的信息!"},status=403)
         return self.update(request,pk, partial=True)
 
 
+class UserView(ListAPIView):
+    serializer_class = UpdateUserSerializer
+    permission_classes = [IsAuthenticated,SuperManagerPermission]
+    queryset = User.objects.all()
+    filter_backends = [DjangoFilterBackend]
+    #添加过滤字段
+    filterset_fields = ["phone","school_id","username"]
+
+    def get_queryset(self):
+        return User.objects.filter(school_id=self.request.user.school_id)
 
 
 

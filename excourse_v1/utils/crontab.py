@@ -7,7 +7,7 @@ def task_test():
 
 def task_update_overdue():
     import datetime
-    from utils.timediff import utf2local
+    from utils.timediff import utc2local
     import sys
     import os
     import django
@@ -20,7 +20,7 @@ def task_update_overdue():
     applications = Application.objects.filter(overdue=0,type=0)
     for application in applications:
         # todo 判断是否过期: 当前日期 >= 申请课程的上课日期
-        if datetime.datetime.now().date() >= utf2local(application.fail_time).date():
+        if datetime.datetime.now().date() >= utc2local(application.fail_time).date():
             application.overdue = 1
             application.save()
 

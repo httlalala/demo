@@ -24,6 +24,7 @@ from rest_framework.views import APIView
 
 from schools.models import School
 from utils.permission import GradeManagerPermission
+from utils.timediff import week2date, date2week
 
 
 class viewtest(APIView):
@@ -58,6 +59,27 @@ class index(views.View):
     def get(self,request):
         return HttpResponse("ok")
 
+class week2dateView(APIView):
+    permission_classes = [IsAuthenticated]
+    def post(self,request):
+        week = request.data.get('week',None)
+        if week:
+            date = week2date(week=week,school_id=self.request.user.school_id_id)
+            return Response(data=date,status=status.HTTP_200_OK)
+        else:
+            return Response({"请检查week参数"}, status=status.HTTP_400_BAD_REQUEST)
+
+class date2weekView(APIView):
+    permission_classes = [IsAuthenticated]
+    def post(self,request):
+        date = request.data.get('date', None)
+        if date:
+            date = date2week(date=date,school_id=self.request.user.school_id_id)
+            if date == -1:
+                return Response({"传入的日期有误"},status=status.HTTP_400_BAD_REQUEST)
+            return Response(data=date,status=status.HTTP_200_OK)
+        else:
+            return Response({"请检查date参数"}, status=status.HTTP_400_BAD_REQUEST)
 
 
 urlpatterns = [
@@ -78,6 +100,9 @@ urlpatterns = [
     path('testmessage/',viewtestmessage.as_view()),
     path('testinsertdata/',viewtestinsertdata.as_view()),
     path('index/',index.as_view()),
+
+    path('week2date/',week2dateView.as_view()),
+    path('date2week/',date2weekView.as_view()),
 
 ]
 

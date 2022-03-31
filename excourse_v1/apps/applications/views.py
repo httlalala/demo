@@ -39,6 +39,11 @@ class GradeManagerRaiseApplicationsView(UpdateAPIView):
             application = Application.objects.get(id=pk)
             application.solver_confirm = 1
             application.save()
+            # todo 给申请人发短信通知
+            applicant_info = res.data.get('applicant_info')
+            sendMessage.substitutionApplicant(applicant_name=applicant_info['teacher_name'],
+                                              manager_name=request.user.username,
+                                              mobile=applicant_info['teacher_phone'])
             return res
         else:
             # todo 代课处理完成，给双方短信
@@ -110,22 +115,38 @@ class ApplicationsView(UpdateAPIView,CreateAPIView,ListAPIView):
         if not solver_confirm:
             return res
         if solver_confirm == 1 and res.data.get('type') == 0:
-            # todo 调课被同意了，修改课程表: 把互换课程id
             applicant_course = Course.objects.get(id=res.data.get('applicant_course_id'))
             target_course = Course.objects.get(id=res.data.get('target_course_id'))
             # todo 给申请方发个短信通知
             sendMessage.exchangeApplicant(applicant_name=applicant_course.teacher_id.username, target_name=target_course.teacher_id.username, mobile=applicant_course.teacher_id.phone)
-
+            # todo 调课被同意了，修改课程表: 把互换课程id
             applicant_course.teacher_id,target_course.teacher_id = target_course.teacher_id,applicant_course.teacher_id
             return res
 
+        if solver_confirm == 0 and res.data.get('type') == 0:
+            applicant_course = Course.objects.get(id=res.data.get('applicant_course_id'))
+            target_course = Course.objects.get(id=res.data.get('target_course_id'))
+            # todo 给申请方发个短信通知
+            sendMessage.exchangeApplicant(applicant_name=applicant_course.teacher_id.username, target_name=target_course.teacher_id.username, mobile=applicant_course.teacher_id.phone)
+            # todo 调课被拒绝了，不需要修改课程表
+            return res
+
     def post(self, request):
-        applicant_course_id = request.data.get('applicant_course_id',None)
         try:
-            applicant_course_start_time = Course.objects.get(id=applicant_course_id).start_time
-        except Exception:
-            return Response({"msg":"提交的applicant_course_id"})
-        request.data['fail_time'] = applicant_course_start_time
+            applicant_course = Course.objects.get(id=request.data.get('applicant_course_id',None))
+        except Course.DoesNotExist:
+            return Response({"msg":"提交的applicant_course_id有误"})
+        if int(request.data.get('type')) == 0:
+            try:
+                target_course = Course.objects.get(id=request.data.get('target_course_id',None))
+            except Course.DoesNotExist:
+                return Response({"msg":"target_course_id"})
+            request.data['fail_time'] = applicant_course.start_time
+            # todo 调课通知目标人
+            sendMessage.exchangeTarget(applicant_name=applicant_course.teacher_id.username,target_name=target_course.teacher_id.username,mobile=target_course.teacher_id.phone)
+        elif int(request.data.get('type')) == 1:
+            # todo 代课通知管理员
+            sendMessage.substitutionManager(applicant_name=applicant_course.teacher_id.username,grade=applicant_course.class_id.grade)
         return self.create(request)
 
 

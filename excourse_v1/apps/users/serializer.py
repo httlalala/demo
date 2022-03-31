@@ -19,12 +19,25 @@ class UpdateUserSerializer(serializers.ModelSerializer):
         print('update')
         phone = validated_data.pop('phone',None)
         password = validated_data.pop('password',None)
-        if phone:  # 如果想要修改手机号
-            # todo 手机号校验
-            instance.phone = phone
-        if password:  # 如果想要密码
-            # todo 加密s
-            instance.set_password(password)
+        if phone or password:  # 如果想要修改手机号
+            # todo 校验验证码
+            sms_code = validated_data.pop('sms_code',None)
+            try:
+                real_code = SMSCode.objects.get(phone=phone)
+            except SMSCode.DoesNotExist:
+                raise serializers.ValidationError('验证码错误')
+            timediff = (datetime.datetime.now() - utc2local(real_code.update_time)).seconds
+            if timediff > 300:
+                raise serializers.ValidationError('验证码已经失效')
+            elif real_code.code != sms_code:
+                raise serializers.ValidationError('验证码错误')
+
+            if password:  # 如果想要密码
+                # todo 加密
+                instance.set_password(password)
+            if phone:  # 如果想要密码
+                # todo 加密
+                instance.phone=phone
 
 
 
@@ -67,7 +80,9 @@ class CreateUserSerializer(serializers.ModelSerializer):
         fields = '__all__'
         read_only_fields = ('id',)
 
+
     def validate(self, attrs):
+        # todo 校验验证码
         phone = attrs['phone']
         sms_code = attrs['sms_code']
         try:
@@ -79,8 +94,15 @@ class CreateUserSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError('验证码已经失效')
         elif real_code.code != sms_code:
             raise serializers.ValidationError('验证码错误')
-        else:
-            return attrs
+        # todo 检查 年级管理员
+        if attrs.get('is_grade') is not None:
+            try:
+                users = User.objects.filter(is_grade=attrs.get('is_grade'))
+            except User.DoesNotExist:
+                pass
+            if users:
+                raise serializers.ValidationError('已有该年级的管理员')
+        return attrs
 
     def create(self, validated_data):
         '''

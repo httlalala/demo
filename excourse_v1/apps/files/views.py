@@ -12,16 +12,17 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.conf import settings
 
+from files.models import UploadRecord
 from schools.models import School
 from utils.generateCourseFile import saveFile
-from utils.permission import GradeManagerPermission
+from utils.permission import GradeManagerPermission,SuperManagerPermission
 from utils.insertdata import generateData
+from utils.timediff import week2date
 
 class UploadCourseView(APIView):
-    permission_classes = [IsAuthenticated,GradeManagerPermission]
+    permission_classes = [IsAuthenticated,SuperManagerPermission]
     def post(self,request):
-        myFile = request.FILES.get("upload_file", None)
-        week_num = request.data.get("week_num", 20)
+        myFile = request.FILES.get("file", None)
         week_start = request.data.get("week_start", 1)
         try:
             school = self.request.user.school_id
@@ -34,12 +35,16 @@ class UploadCourseView(APIView):
             return Response({"msg":"no files for upload!"},status=status.HTTP_403_FORBIDDEN)
 
         filename = os.path.join(settings.BASE_DIR,'media/upload/courses',myFile.name)
+        if os.path.exists(filename):
+            filename
         destination = open(filename,'wb+')
         for chunk in myFile.chunks():
             destination.write(chunk)
         destination.close()
 
         if generateData(filename=filename,school_id=school.id,week_start=week_start):
+            # todo 写数据库
+            UploadRecord.objects.create(path=filename,uploader_id=self.request.user,start_time=week2date(week_start))
             return Response({"msg":"上传成功"},status=status.HTTP_200_OK)
         else:
             return Response({"msg": "上传失败，请重试!"}, status=status.HTTP_403_FORBIDDEN)
@@ -48,14 +53,15 @@ class UploadCourseView(APIView):
 
 
 class DownloadCourseView(APIView):
-    permission_classes = [IsAuthenticated,GradeManagerPermission]
+    permission_classes = [IsAuthenticated,SuperManagerPermission]
     def post(self, request):
         is_application = request.data.get('is_application',False)
-        path = os.path.join(settings.BASE_DIR,'media')
+        path = os.path.join(settings.BASE_DIR,'media','download')
         week_start = request.data.get('week_start',1)
-        week_end = request.data.get('week_end',self.request.user.school_id.week_num)
+        # week_end = request.data.get('week_end',self.request.user.school_id.week_num)
+        week_end = 5
 
-        filename = saveFile(week_start, week_end, path=path, is_application=is_application)
+        filename,fname = saveFile(week_start, week_end, path=path, is_application=is_application)
         if filename is None:
             return Response({"msg":"服务器导出出错，请联系管理员"},status=status.HTTP_403_FORBIDDEN)
         # local_filename = os.path.join(settings.BASE_DIR,'media/upload/courses')
@@ -64,7 +70,31 @@ class DownloadCourseView(APIView):
         file = open(filename, 'rb')
         response = FileResponse(file)
         response['Content-Type'] = 'application/octet-stream'
-        response['Content-Disposition'] = "attachment; filename*=utf-8''{}".format(escape_uri_path(filename[-1]))
+        response['Access-Control-Expose-Headers'] = "Content-Disposition, Content-Type"
+        response['Content-Disposition'] = "attachment; filename={}".format(fname)
         return response
+
+
+
+
+class DownloadtemplateView(APIView):
+    # permission_classes = [IsAuthenticated,SuperManagerPermission]
+    def get(self, request):
+        path = os.path.join(settings.BASE_DIR,'media','download')
+        fname = 'template.xls'
+        filename = os.path.join(path,fname)
+        file = open(filename, 'rb')
+        response = FileResponse(file)
+        response['Content-Type'] = 'application/octet-stream'
+        response['Access-Control-Expose-Headers'] = "Content-Disposition, Content-Type"
+        response['Content-Disposition'] = "attachment; filename={}".format(fname)
+        return response
+
+
+
+
+
+
+
 
 

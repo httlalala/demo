@@ -3,6 +3,8 @@ from time import strftime
 
 from django.db.models import Q
 from django.shortcuts import render
+from rest_framework import filters
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import status
 from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView, GenericAPIView
@@ -38,12 +40,18 @@ class FirstWeekSetView(APIView):
 class SchoolListView(ListAPIView,CreateAPIView):
     serializer_class = SchoolSerializer
     queryset = School.objects.all()
+    # filter_backends = [DjangoFilterBackend, filters.OrderingFilter]
+    # filterset_fields = ["id", "name", 'province','city','region']
+    # ordering_fields = ['id', 'name', 'province','city','region']
+
+
 
 
 class SchoolRetrieveView(RetrieveAPIView,UpdateAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = SchoolSerializer
     queryset = School.objects.all()
+
     def put(self, request, *args, **kwargs):
         return self.update(request,partial=True)
 

@@ -1,3 +1,5 @@
+import datetime
+
 from django.db.models import Q, F
 from django.shortcuts import render
 from rest_framework import status
@@ -9,6 +11,7 @@ from rest_framework.views import APIView
 
 from users.models import User
 from utils.pagination import StandardResultsSetPagination
+from utils.timediff import date2week
 from .serializer import CoursesSerializer
 from courses.models import Course
 from classes.models import Class
@@ -56,8 +59,11 @@ class ChoicesApplicationsView(ListAPIView):
         if type not in [0, 1]:
             return Response({'msg': "type参数无效或未指定"}, status=status.HTTP_404_NOT_FOUND)
         course_id = self.request.data.get('applicant_course_id', None)
+        week = self.request.data.get('week', None)
         if course_id is None:
             return Response({'msg': "applicant_course_id参数无效或未指定"}, status=status.HTTP_404_NOT_FOUND)
+        if week is None:
+            week = date2week(school_id=self.request.user.school_id_id,date=datetime.datetime.now())
         # todo 获取 申请课程 对象
         try:
             applicant_course = Course.objects.get(id=course_id)
@@ -70,7 +76,7 @@ class ChoicesApplicationsView(ListAPIView):
             class_number = applicant_course.class_id.class_number
             class_id = Class.objects.get(grade=grade, class_number=class_number,
                                          school_id=applicant_course.class_id.school_id).id
-            qs = Course.objects.filter(class_id=class_id)
+            qs = Course.objects.filter(class_id=class_id,week=week)
             # todo 时间不冲突 对方在这个时间没课
             qs = qs.exclude(
                 Q(week=applicant_course.week, weekday=applicant_course.weekday, order=applicant_course.order))
@@ -86,11 +92,10 @@ class ChoicesApplicationsView(ListAPIView):
         elif type == 1:
             # todo 同年级
             class_id = Class.objects.filter(grade=applicant_course.class_id.grade).values('id')
-            qs = Course.objects.filter(class_id__in=class_id)
+            qs = Course.objects.filter(class_id__in=class_id,week=week)
             # todo 时间不冲突 对方在这个时间没课
             qs = qs.exclude(Q(week=applicant_course.week, weekday=applicant_course.weekday, order=applicant_course.order))
             # todo 未来的课程
             qs = qs.filter(Q(week=applicant_course.week, weekday__gt=applicant_course.weekday) | Q(week__gt=applicant_course.week))
-        qs = qs.order_by('week')
         return qs
 

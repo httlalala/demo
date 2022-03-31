@@ -25,7 +25,7 @@ SECRET_KEY = 'c&un*2wh8#ljm=o3jh&4_v5_7ns*7n+(^p1gs-u!*dc_h%0dc0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'schedule',
     'django_crontab',
     'corsheaders',
+    'django_filters',
 
 
 
@@ -201,7 +202,7 @@ REST_FRAMEWORK = {
     # 分页
     'DEFAULT_PAGINATION_CLASS':'utils.pagination.StandardResultsSetPagination',
 
-    # 'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
 }
 
 import datetime
@@ -227,15 +228,16 @@ CRONTAB_COMMAND_PREFIX = 'LANG_ALL=zh_cn.UTF-8'
 
 
 
-if DEBUG:
-    CORS_ORIGIN_ALLOW_ALL = True
-else:
-    CORS_ORIGIN_WHITELIST = (
-        '127.0.0.1:5500',
-    )
+# if DEBUG:
+CORS_ORIGIN_ALLOW_ALL = True
+# else:
+#     CORS_ORIGIN_WHITELIST = (
+#         '127.0.0.1:5500',
+#     )
 CORS_ALLOW_CREDENTIALS = True  # 跨域时允许携带cookie
 
 
 MESSAGE_CAN_USE = False
 if not DEBUG:
     MESSAGE_CAN_USE = True
+

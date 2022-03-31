@@ -13,6 +13,9 @@ urlpatterns = [
     # 修改信息和查看信息
     path('users/<pk>/',views.UserInfoView.as_view()),
 
+    # 搜索用户
+    path('users/',views.UserView.as_view()),
+
 
 
 

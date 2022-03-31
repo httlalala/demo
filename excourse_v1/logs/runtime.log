@@ -1795,3 +1795,504 @@ INFO 2022-03-29 11:22:02,186 basehttp 154 "GET /users/check/ HTTP/1.1" 200 25
 INFO 2022-03-29 11:22:58,400 basehttp 154 "GET /users/check/ HTTP/1.1" 200 25
 INFO 2022-03-29 11:24:20,945 autoreload 578 Watching for file changes with StatReloader
 INFO 2022-03-29 11:24:41,028 autoreload 578 Watching for file changes with StatReloader
+WARNING 2022-03-29 11:24:46,389 log 228 Forbidden: /users/check/
+WARNING 2022-03-29 11:24:46,390 basehttp 154 "GET /users/check/ HTTP/1.1" 403 31
+INFO 2022-03-29 11:25:06,865 basehttp 154 "GET /users/check/ HTTP/1.1" 200 25
+INFO 2022-03-29 13:54:15,882 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\excourse_v1\settings.py changed, reloading.
+INFO 2022-03-29 13:54:19,522 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-29 13:56:04,480 basehttp 154 "POST /users/login/ HTTP/1.1" 200 228
+INFO 2022-03-29 13:56:29,740 basehttp 154 "POST /users/login/ HTTP/1.1" 200 228
+INFO 2022-03-30 14:07:40,111 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 14:08:20,761 basehttp 154 "POST /users/login/ HTTP/1.1" 200 233
+WARNING 2022-03-30 14:08:30,552 log 228 Unauthorized: /users/
+WARNING 2022-03-30 14:08:30,553 basehttp 154 "GET /users/ HTTP/1.1" 401 43
+INFO 2022-03-30 14:08:46,824 basehttp 154 "POST /users/login/ HTTP/1.1" 200 233
+WARNING 2022-03-30 14:08:53,793 log 228 Unauthorized: /users/
+WARNING 2022-03-30 14:08:53,794 basehttp 154 "GET /users/ HTTP/1.1" 401 43
+WARNING 2022-03-30 14:09:20,660 log 228 Unauthorized: /users/
+WARNING 2022-03-30 14:09:20,660 basehttp 154 "GET /users/ HTTP/1.1" 401 43
+ERROR 2022-03-30 14:09:34,825 log 228 Internal Server Error: /users/
+Traceback (most recent call last):
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\generics.py", line 208, in get
+    return self.retrieve(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\generics.py", line 92, in get_object
+    (self.__class__.__name__, lookup_url_kwarg)
+AssertionError: Expected view UserInfoView to be called with a URL keyword argument named "pk". Fix your URL conf, or set the `.lookup_field` attribute on the view correctly.
+ERROR 2022-03-30 14:09:34,827 basehttp 154 "GET /users/ HTTP/1.1" 500 22099
+INFO 2022-03-30 14:10:00,878 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\users\urls.py changed, reloading.
+INFO 2022-03-30 14:10:03,446 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 14:10:06,999 basehttp 154 "GET /users/ HTTP/1.1" 200 2310
+INFO 2022-03-30 14:10:38,874 basehttp 154 "GET /users/?page=1&per_page=5 HTTP/1.1" 200 2321
+INFO 2022-03-30 14:10:54,608 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\users\views.py changed, reloading.
+INFO 2022-03-30 14:10:56,899 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 14:11:02,690 basehttp 154 "GET /users/?page=1&per_page=5 HTTP/1.1" 200 2321
+INFO 2022-03-30 14:11:16,389 basehttp 154 "GET /users/?page=1&per_page=5 HTTP/1.1" 200 2321
+INFO 2022-03-30 14:11:34,134 basehttp 154 "GET /users/?page=1&per_page=5&username=%E8%A7%A3%E9%87%91%E9%9C%9E HTTP/1.1" 200 497
+INFO 2022-03-30 14:12:15,027 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\users\views.py changed, reloading.
+INFO 2022-03-30 14:12:17,356 autoreload 578 Watching for file changes with StatReloader
+WARNING 2022-03-30 14:12:31,782 log 228 Forbidden: /users/
+WARNING 2022-03-30 14:12:31,783 basehttp 154 "GET /users/?page=1&per_page=5&username=%E8%A7%A3%E9%87%91%E9%9C%9E&school_id=1&phone=13833916349 HTTP/1.1" 403 49
+INFO 2022-03-30 14:13:18,654 basehttp 154 "GET /users/?page=1&per_page=5&username=%E8%A7%A3%E9%87%91%E9%9C%9E&school_id=1&phone=13833916349 HTTP/1.1" 200 52
+INFO 2022-03-30 14:13:24,612 basehttp 154 "GET /users/?page=1&per_page=5&username=%E9%83%9D%E9%AB%98%E9%98%B3&school_id=1&phone=13833916349 HTTP/1.1" 200 499
+INFO 2022-03-30 14:14:28,536 basehttp 154 "GET /users/?page=1&per_page=5&username=%E9%83%9D%E9%AB%98%E9%98%B3&school_id=1&phone=13833916349 HTTP/1.1" 200 499
+INFO 2022-03-30 14:14:45,996 basehttp 154 "GET /users/?page=1&per_page=5&username=%E9%83%9D%E9%AB%98%E9%98%B3&school_id=1&phone=13833916349 HTTP/1.1" 200 499
+INFO 2022-03-30 14:14:55,826 basehttp 154 "GET /users/?username=%E9%83%9D%E9%AB%98%E9%98%B3&school_id=1&phone=13833916349 HTTP/1.1" 200 499
+INFO 2022-03-30 14:17:32,159 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\users\views.py changed, reloading.
+INFO 2022-03-30 14:17:34,499 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 14:23:27,389 basehttp 154 "GET /users/?username=%E9%83%9D%E9%AB%98%E9%98%B3&phone=13833916349 HTTP/1.1" 200 499
+INFO 2022-03-30 14:32:10,648 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\applications\views.py changed, reloading.
+INFO 2022-03-30 14:32:13,006 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 14:32:31,782 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\applications\views.py changed, reloading.
+INFO 2022-03-30 14:32:34,156 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 14:36:57,002 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\utils\timediff.py changed, reloading.
+INFO 2022-03-30 14:36:59,314 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 14:37:18,940 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\utils\timediff.py changed, reloading.
+INFO 2022-03-30 14:37:21,186 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 14:37:44,864 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\utils\timediff.py changed, reloading.
+INFO 2022-03-30 14:37:47,175 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 14:38:30,235 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\utils\timediff.py changed, reloading.
+INFO 2022-03-30 14:38:32,727 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 14:38:33,779 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\utils\timediff.py changed, reloading.
+INFO 2022-03-30 14:38:36,411 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 14:43:07,669 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\excourse_v1\urls.py changed, reloading.
+INFO 2022-03-30 14:43:10,144 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 14:45:11,384 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\utils\timediff.py changed, reloading.
+INFO 2022-03-30 14:45:13,697 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 14:46:54,764 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\utils\timediff.py changed, reloading.
+INFO 2022-03-30 14:46:57,136 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 14:49:11,249 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\excourse_v1\urls.py changed, reloading.
+INFO 2022-03-30 14:49:13,593 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 14:50:12,445 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\excourse_v1\urls.py changed, reloading.
+INFO 2022-03-30 14:50:15,150 autoreload 578 Watching for file changes with StatReloader
+ERROR 2022-03-30 14:50:33,753 log 228 Internal Server Error: /week2date/
+Traceback (most recent call last):
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\request.py", line 416, in __getattr__
+    return getattr(self._request, attr)
+AttributeError: 'WSGIRequest' object has no attribute 'date'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\excourse_v1\urls.py", line 65, in get
+    week = request.date.get('week',None)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\request.py", line 418, in __getattr__
+    return self.__getattribute__(attr)
+AttributeError: 'Request' object has no attribute 'date'
+ERROR 2022-03-30 14:50:33,756 basehttp 154 "GET /week2date/ HTTP/1.1" 500 22016
+INFO 2022-03-30 14:50:53,355 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\excourse_v1\urls.py changed, reloading.
+INFO 2022-03-30 14:50:55,652 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 14:50:58,458 basehttp 154 "GET /week2date/ HTTP/1.1" 200 12
+WARNING 2022-03-30 14:52:23,818 log 228 Bad Request: /date2week/
+WARNING 2022-03-30 14:52:23,818 basehttp 154 "GET /date2week/ HTTP/1.1" 400 23
+INFO 2022-03-30 14:52:46,471 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\excourse_v1\urls.py changed, reloading.
+INFO 2022-03-30 14:52:48,747 autoreload 578 Watching for file changes with StatReloader
+ERROR 2022-03-30 14:52:55,375 log 228 Internal Server Error: /date2week/
+Traceback (most recent call last):
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\excourse_v1\urls.py", line 78, in get
+    date = date2week(date=date,school_id=self.request.user.school_id_id)
+  File "F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\utils\timediff.py", line 10, in date2week
+    if date<first_week_time:
+TypeError: '<' not supported between instances of 'str' and 'datetime.datetime'
+ERROR 2022-03-30 14:52:55,378 basehttp 154 "GET /date2week/ HTTP/1.1" 500 21830
+INFO 2022-03-30 14:53:12,938 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\utils\timediff.py changed, reloading.
+INFO 2022-03-30 14:53:15,254 autoreload 578 Watching for file changes with StatReloader
+ERROR 2022-03-30 14:53:17,757 log 228 Internal Server Error: /date2week/
+Traceback (most recent call last):
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\excourse_v1\urls.py", line 78, in get
+    date = date2week(date=date,school_id=self.request.user.school_id_id)
+  File "F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\utils\timediff.py", line 15, in date2week
+    if date<first_week_time:
+TypeError: can't compare offset-naive and offset-aware datetimes
+ERROR 2022-03-30 14:53:17,763 basehttp 154 "GET /date2week/ HTTP/1.1" 500 21800
+INFO 2022-03-30 14:53:53,149 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\utils\timediff.py changed, reloading.
+INFO 2022-03-30 14:53:55,423 autoreload 578 Watching for file changes with StatReloader
+WARNING 2022-03-30 14:54:01,370 log 228 Bad Request: /date2week/
+WARNING 2022-03-30 14:54:01,371 basehttp 154 "GET /date2week/ HTTP/1.1" 400 25
+WARNING 2022-03-30 14:54:09,149 log 228 Bad Request: /date2week/
+WARNING 2022-03-30 14:54:09,150 basehttp 154 "GET /date2week/ HTTP/1.1" 400 25
+INFO 2022-03-30 14:54:15,295 basehttp 154 "GET /date2week/ HTTP/1.1" 200 1
+INFO 2022-03-30 15:01:38,577 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\excourse_v1\settings.py changed, reloading.
+INFO 2022-03-30 15:01:41,076 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 15:03:28,162 basehttp 154 "POST /users/login/ HTTP/1.1" 200 233
+INFO 2022-03-30 15:19:00,695 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\users\serializer.py changed, reloading.
+INFO 2022-03-30 15:19:03,085 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 16:22:02,355 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\schools\views.py changed, reloading.
+INFO 2022-03-30 16:22:04,731 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 16:22:20,369 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\schools\views.py changed, reloading.
+INFO 2022-03-30 16:22:23,145 autoreload 578 Watching for file changes with StatReloader
+ERROR 2022-03-30 16:22:30,414 log 228 Internal Server Error: /schools/
+Traceback (most recent call last):
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\generics.py", line 199, in get
+    return self.list(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+AttributeError: 'OrderingFilter' object has no attribute 'filter_queryset'
+ERROR 2022-03-30 16:22:30,419 basehttp 154 "GET /schools/ HTTP/1.1" 500 21747
+INFO 2022-03-30 16:24:00,318 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\schools\views.py changed, reloading.
+INFO 2022-03-30 16:24:02,799 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 16:24:04,659 basehttp 154 "GET /schools/ HTTP/1.1" 200 652
+INFO 2022-03-30 16:24:36,847 basehttp 154 "GET /courses/?page=1&per_page=5 HTTP/1.1" 200 1843
+INFO 2022-03-30 16:26:31,775 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\schools\views.py changed, reloading.
+INFO 2022-03-30 16:26:34,113 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 16:30:18,321 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\schools\views.py changed, reloading.
+INFO 2022-03-30 16:30:20,577 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 16:52:52,267 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\files\views.py changed, reloading.
+INFO 2022-03-30 16:52:54,576 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 16:57:24,910 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\files\views.py changed, reloading.
+INFO 2022-03-30 16:57:27,190 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 16:59:06,863 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\files\views.py changed, reloading.
+INFO 2022-03-30 16:59:09,089 autoreload 578 Watching for file changes with StatReloader
+WARNING 2022-03-30 17:05:52,644 log 228 Not Found: /
+WARNING 2022-03-30 17:05:52,645 basehttp 154 "GET / HTTP/1.1" 404 5552
+WARNING 2022-03-30 17:05:52,845 log 228 Not Found: /favicon.ico
+WARNING 2022-03-30 17:05:52,846 basehttp 154 "GET /favicon.ico HTTP/1.1" 404 5603
+WARNING 2022-03-30 17:06:14,188 log 228 Unauthorized: /files/download/courses/
+WARNING 2022-03-30 17:06:14,189 basehttp 154 "GET /files/download/courses/ HTTP/1.1" 401 8641
+INFO 2022-03-30 17:06:14,319 basehttp 154 "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 3597
+INFO 2022-03-30 17:06:14,322 basehttp 154 "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 200 3385
+INFO 2022-03-30 17:06:14,322 basehttp 154 "GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 817
+INFO 2022-03-30 17:06:14,330 basehttp 154 "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 200 121457
+INFO 2022-03-30 17:06:14,333 basehttp 154 "GET /static/rest_framework/css/default.css HTTP/1.1" 200 1152
+INFO 2022-03-30 17:06:14,333 basehttp 154 "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13632
+INFO 2022-03-30 17:06:14,341 basehttp 154 "GET /static/rest_framework/js/default.js HTTP/1.1" 200 1268
+INFO 2022-03-30 17:06:14,341 basehttp 154 "GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 1719
+INFO 2022-03-30 17:06:14,346 basehttp 154 "GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
+INFO 2022-03-30 17:06:14,354 basehttp 154 "GET /static/rest_framework/js/jquery-3.5.1.min.js HTTP/1.1" 200 89476
+INFO 2022-03-30 17:06:14,366 basehttp 154 "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 39680
+WARNING 2022-03-30 17:06:21,745 basehttp 154 "GET /static/rest_framework/css/bootstrap.min.css.map HTTP/1.1" 404 1744
+WARNING 2022-03-30 17:06:37,262 log 228 Unauthorized: /files/download/courses/
+WARNING 2022-03-30 17:06:37,263 basehttp 154 "GET /files/download/courses/ HTTP/1.1" 401 8641
+WARNING 2022-03-30 17:06:37,458 basehttp 154 "GET /static/rest_framework/css/bootstrap.min.css.map HTTP/1.1" 404 1744
+INFO 2022-03-30 17:06:44,560 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\files\views.py changed, reloading.
+INFO 2022-03-30 17:06:46,895 autoreload 578 Watching for file changes with StatReloader
+WARNING 2022-03-30 17:06:53,002 log 228 Method Not Allowed: /files/download/courses/
+WARNING 2022-03-30 17:06:53,002 basehttp 154 "GET /files/download/courses/ HTTP/1.1" 405 10503
+WARNING 2022-03-30 17:06:53,159 basehttp 154 "GET /static/rest_framework/css/bootstrap.min.css.map HTTP/1.1" 404 1744
+ERROR 2022-03-30 17:07:04,447 log 228 Internal Server Error: /files/download/courses/
+Traceback (most recent call last):
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\files\views.py", line 57, in post
+    week_end = request.data.get('week_end',self.request.user.school_id.week_num)
+AttributeError: 'AnonymousUser' object has no attribute 'school_id'
+ERROR 2022-03-30 17:07:04,448 basehttp 154 "POST /files/download/courses/ HTTP/1.1" 500 105073
+INFO 2022-03-30 17:07:33,450 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\files\views.py changed, reloading.
+INFO 2022-03-30 17:07:35,635 autoreload 578 Watching for file changes with StatReloader
+WARNING 2022-03-30 17:07:42,266 basehttp 154 "GET /static/rest_framework/css/bootstrap.min.css.map HTTP/1.1" 404 1744
+WARNING 2022-03-30 17:07:45,322 log 228 Forbidden: /files/download/courses/
+WARNING 2022-03-30 17:07:45,322 basehttp 154 "POST /files/download/courses/ HTTP/1.1" 403 8792
+WARNING 2022-03-30 17:07:45,442 basehttp 154 "GET /static/rest_framework/css/bootstrap.min.css.map HTTP/1.1" 404 1744
+INFO 2022-03-30 17:09:02,200 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\utils\generateCourseFile.py changed, reloading.
+INFO 2022-03-30 17:09:04,627 autoreload 578 Watching for file changes with StatReloader
+WARNING 2022-03-30 17:09:14,166 basehttp 154 "GET /static/rest_framework/css/bootstrap.min.css.map HTTP/1.1" 404 1744
+WARNING 2022-03-30 17:09:16,055 log 228 Forbidden: /files/download/courses/
+WARNING 2022-03-30 17:09:16,055 basehttp 154 "POST /files/download/courses/ HTTP/1.1" 403 8792
+WARNING 2022-03-30 17:09:16,175 basehttp 154 "GET /static/rest_framework/css/bootstrap.min.css.map HTTP/1.1" 404 1744
+WARNING 2022-03-30 17:09:16,976 log 228 Forbidden: /files/download/courses/
+WARNING 2022-03-30 17:09:16,976 basehttp 154 "POST /files/download/courses/ HTTP/1.1" 403 8792
+WARNING 2022-03-30 17:09:17,127 basehttp 154 "GET /static/rest_framework/css/bootstrap.min.css.map HTTP/1.1" 404 1744
+INFO 2022-03-30 17:11:14,847 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\utils\generateCourseFile.py changed, reloading.
+INFO 2022-03-30 17:11:17,405 autoreload 578 Watching for file changes with StatReloader
+WARNING 2022-03-30 17:11:22,462 log 228 Method Not Allowed: /files/download/courses/
+WARNING 2022-03-30 17:11:22,462 basehttp 154 "GET /files/download/courses/ HTTP/1.1" 405 10503
+WARNING 2022-03-30 17:11:22,600 basehttp 154 "GET /static/rest_framework/css/bootstrap.min.css.map HTTP/1.1" 404 1744
+INFO 2022-03-30 17:11:24,701 generateCourseFile 99 [Errno 2] No such file or directory: 'F:\\LearningFiles\\Django_restframework\\exchangecourse\\excourse_v1\\media\\download\\course_1_5.xls'
+WARNING 2022-03-30 17:11:24,712 log 228 Forbidden: /files/download/courses/
+WARNING 2022-03-30 17:11:24,713 basehttp 154 "POST /files/download/courses/ HTTP/1.1" 403 8792
+WARNING 2022-03-30 17:11:24,811 basehttp 154 "GET /static/rest_framework/css/bootstrap.min.css.map HTTP/1.1" 404 1744
+INFO 2022-03-30 17:12:51,513 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\utils\generateCourseFile.py changed, reloading.
+INFO 2022-03-30 17:12:53,867 autoreload 578 Watching for file changes with StatReloader
+WARNING 2022-03-30 17:12:55,222 log 228 Method Not Allowed: /files/download/courses/
+WARNING 2022-03-30 17:12:55,222 basehttp 154 "GET /files/download/courses/ HTTP/1.1" 405 10503
+WARNING 2022-03-30 17:12:55,358 basehttp 154 "GET /static/rest_framework/css/bootstrap.min.css.map HTTP/1.1" 404 1744
+ERROR 2022-03-30 17:12:58,272 log 228 Internal Server Error: /files/download/courses/
+Traceback (most recent call last):
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\files\views.py", line 60, in post
+    filename = saveFile(week_start, week_end, path=path, is_application=is_application)
+  File "F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\utils\generateCourseFile.py", line 93, in saveFile
+    writer.save()
+  File "H:\Anaconda\envs\django\lib\site-packages\pandas\io\excel\_xlwt.py", line 32, in save
+    return self.book.save(self.path)
+  File "H:\Anaconda\envs\django\lib\site-packages\xlwt\Workbook.py", line 710, in save
+    doc.save(filename_or_stream, self.get_biff_data())
+  File "H:\Anaconda\envs\django\lib\site-packages\xlwt\CompoundDoc.py", line 262, in save
+    f = open(file_name_or_filelike_obj, 'w+b')
+FileNotFoundError: [Errno 2] No such file or directory: 'F:\\LearningFiles\\Django_restframework\\exchangecourse\\excourse_v1\\media\\download\\course_1_5.xls'
+ERROR 2022-03-30 17:12:58,289 basehttp 154 "POST /files/download/courses/ HTTP/1.1" 500 137826
+WARNING 2022-03-30 17:18:29,476 log 228 Method Not Allowed: /files/download/courses/
+WARNING 2022-03-30 17:18:29,477 basehttp 154 "GET /files/download/courses/ HTTP/1.1" 405 10503
+WARNING 2022-03-30 17:18:29,634 basehttp 154 "GET /static/rest_framework/css/bootstrap.min.css.map HTTP/1.1" 404 1744
+INFO 2022-03-30 17:18:31,905 basehttp 154 "POST /files/download/courses/ HTTP/1.1" 200 500736
+WARNING 2022-03-30 17:18:31,961 log 228 Method Not Allowed: /files/download/courses/
+WARNING 2022-03-30 17:18:31,962 basehttp 154 "GET /files/download/courses/ HTTP/1.1" 405 10503
+WARNING 2022-03-30 17:18:32,152 basehttp 154 "GET /static/rest_framework/css/bootstrap.min.css.map HTTP/1.1" 404 1744
+INFO 2022-03-30 17:20:34,606 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\files\views.py changed, reloading.
+INFO 2022-03-30 17:20:37,540 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 17:20:41,598 basehttp 154 "POST /files/download/courses/ HTTP/1.1" 200 500736
+WARNING 2022-03-30 17:20:41,667 log 228 Method Not Allowed: /files/download/courses/
+WARNING 2022-03-30 17:20:41,667 basehttp 154 "GET /files/download/courses/ HTTP/1.1" 405 10503
+WARNING 2022-03-30 17:20:41,803 basehttp 154 "GET /static/rest_framework/css/bootstrap.min.css.map HTTP/1.1" 404 1744
+INFO 2022-03-30 17:20:46,825 basehttp 154 "POST /files/download/courses/ HTTP/1.1" 200 500736
+WARNING 2022-03-30 17:20:46,868 log 228 Method Not Allowed: /files/download/courses/
+WARNING 2022-03-30 17:20:46,869 basehttp 154 "GET /files/download/courses/ HTTP/1.1" 405 10503
+WARNING 2022-03-30 17:20:47,013 basehttp 154 "GET /static/rest_framework/css/bootstrap.min.css.map HTTP/1.1" 404 1744
+INFO 2022-03-30 17:20:47,820 basehttp 154 "POST /files/download/courses/ HTTP/1.1" 200 500736
+WARNING 2022-03-30 17:20:47,854 log 228 Method Not Allowed: /files/download/courses/
+WARNING 2022-03-30 17:20:47,855 basehttp 154 "GET /files/download/courses/ HTTP/1.1" 405 10503
+WARNING 2022-03-30 17:20:47,980 basehttp 154 "GET /static/rest_framework/css/bootstrap.min.css.map HTTP/1.1" 404 1744
+INFO 2022-03-30 17:20:48,436 basehttp 154 "POST /files/download/courses/ HTTP/1.1" 200 500736
+WARNING 2022-03-30 17:20:48,484 log 228 Method Not Allowed: /files/download/courses/
+WARNING 2022-03-30 17:20:48,485 basehttp 154 "GET /files/download/courses/ HTTP/1.1" 405 10503
+WARNING 2022-03-30 17:20:48,625 basehttp 154 "GET /static/rest_framework/css/bootstrap.min.css.map HTTP/1.1" 404 1744
+INFO 2022-03-30 17:20:49,100 basehttp 154 "POST /files/download/courses/ HTTP/1.1" 200 500736
+WARNING 2022-03-30 17:20:49,132 log 228 Method Not Allowed: /files/download/courses/
+WARNING 2022-03-30 17:20:49,133 basehttp 154 "GET /files/download/courses/ HTTP/1.1" 405 10503
+WARNING 2022-03-30 17:20:49,260 basehttp 154 "GET /static/rest_framework/css/bootstrap.min.css.map HTTP/1.1" 404 1744
+INFO 2022-03-30 17:20:49,726 basehttp 154 "POST /files/download/courses/ HTTP/1.1" 200 500736
+WARNING 2022-03-30 17:20:49,755 log 228 Method Not Allowed: /files/download/courses/
+WARNING 2022-03-30 17:20:49,756 basehttp 154 "GET /files/download/courses/ HTTP/1.1" 405 10503
+WARNING 2022-03-30 17:20:49,876 basehttp 154 "GET /static/rest_framework/css/bootstrap.min.css.map HTTP/1.1" 404 1744
+INFO 2022-03-30 17:20:50,301 basehttp 154 "POST /files/download/courses/ HTTP/1.1" 200 500736
+WARNING 2022-03-30 17:20:50,351 log 228 Method Not Allowed: /files/download/courses/
+WARNING 2022-03-30 17:20:50,351 basehttp 154 "GET /files/download/courses/ HTTP/1.1" 405 10503
+WARNING 2022-03-30 17:20:50,473 basehttp 154 "GET /static/rest_framework/css/bootstrap.min.css.map HTTP/1.1" 404 1744
+INFO 2022-03-30 17:20:50,919 basehttp 154 "POST /files/download/courses/ HTTP/1.1" 200 500736
+WARNING 2022-03-30 17:20:50,949 log 228 Method Not Allowed: /files/download/courses/
+WARNING 2022-03-30 17:20:50,950 basehttp 154 "GET /files/download/courses/ HTTP/1.1" 405 10503
+WARNING 2022-03-30 17:20:51,058 basehttp 154 "GET /static/rest_framework/css/bootstrap.min.css.map HTTP/1.1" 404 1744
+INFO 2022-03-30 17:20:51,586 basehttp 154 "POST /files/download/courses/ HTTP/1.1" 200 500736
+WARNING 2022-03-30 17:20:51,624 log 228 Method Not Allowed: /files/download/courses/
+WARNING 2022-03-30 17:20:51,625 basehttp 154 "GET /files/download/courses/ HTTP/1.1" 405 10503
+WARNING 2022-03-30 17:20:51,756 basehttp 154 "GET /static/rest_framework/css/bootstrap.min.css.map HTTP/1.1" 404 1744
+INFO 2022-03-30 17:21:13,573 basehttp 154 "POST /files/download/courses/ HTTP/1.1" 200 500736
+WARNING 2022-03-30 17:21:13,615 log 228 Method Not Allowed: /files/download/courses/
+WARNING 2022-03-30 17:21:13,616 basehttp 154 "GET /files/download/courses/ HTTP/1.1" 405 10503
+WARNING 2022-03-30 17:21:13,753 basehttp 154 "GET /static/rest_framework/css/bootstrap.min.css.map HTTP/1.1" 404 1744
+INFO 2022-03-30 17:21:30,993 basehttp 154 "POST /files/download/courses/ HTTP/1.1" 200 500736
+WARNING 2022-03-30 17:21:31,029 log 228 Method Not Allowed: /files/download/courses/
+WARNING 2022-03-30 17:21:31,030 basehttp 154 "GET /files/download/courses/ HTTP/1.1" 405 10503
+WARNING 2022-03-30 17:21:31,181 basehttp 154 "GET /static/rest_framework/css/bootstrap.min.css.map HTTP/1.1" 404 1744
+INFO 2022-03-30 17:22:16,264 basehttp 154 "POST /files/download/courses/ HTTP/1.1" 200 500736
+WARNING 2022-03-30 17:22:16,307 log 228 Method Not Allowed: /files/download/courses/
+WARNING 2022-03-30 17:22:16,308 basehttp 154 "GET /files/download/courses/ HTTP/1.1" 405 10503
+WARNING 2022-03-30 17:22:16,471 basehttp 154 "GET /static/rest_framework/css/bootstrap.min.css.map HTTP/1.1" 404 1744
+INFO 2022-03-30 17:23:38,605 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\excourse_v1\settings.py changed, reloading.
+INFO 2022-03-30 17:23:40,861 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 17:25:59,074 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\files\views.py changed, reloading.
+INFO 2022-03-30 17:26:01,541 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 17:26:07,457 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\files\views.py changed, reloading.
+INFO 2022-03-30 17:26:09,896 autoreload 578 Watching for file changes with StatReloader
+WARNING 2022-03-30 17:26:17,273 log 228 Method Not Allowed: /files/download/courses/
+WARNING 2022-03-30 17:26:17,274 basehttp 154 "GET /files/download/courses/ HTTP/1.1" 405 10503
+WARNING 2022-03-30 17:26:17,994 basehttp 154 "GET /static/rest_framework/css/bootstrap.min.css.map HTTP/1.1" 404 1744
+INFO 2022-03-30 17:26:20,591 basehttp 154 "POST /files/download/courses/ HTTP/1.1" 200 500736
+WARNING 2022-03-30 17:26:20,647 log 228 Method Not Allowed: /files/download/courses/
+WARNING 2022-03-30 17:26:20,648 basehttp 154 "GET /files/download/courses/ HTTP/1.1" 405 10503
+WARNING 2022-03-30 17:26:20,774 basehttp 154 "GET /static/rest_framework/css/bootstrap.min.css.map HTTP/1.1" 404 1744
+INFO 2022-03-30 17:26:37,339 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\files\views.py changed, reloading.
+INFO 2022-03-30 17:26:41,670 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 17:26:44,236 basehttp 154 "GET /files/download/courses/ HTTP/1.1" 200 500736
+INFO 2022-03-30 17:28:28,980 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\files\views.py changed, reloading.
+INFO 2022-03-30 17:28:31,361 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 17:28:58,873 basehttp 154 "GET /files/download/courses/ HTTP/1.1" 200 500736
+INFO 2022-03-30 17:30:50,720 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\utils\generateCourseFile.py changed, reloading.
+INFO 2022-03-30 17:30:53,790 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 17:31:05,606 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\files\views.py changed, reloading.
+INFO 2022-03-30 17:31:09,041 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 17:31:11,019 basehttp 154 "GET /files/download/courses/ HTTP/1.1" 200 500736
+INFO 2022-03-30 17:31:38,221 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 17:32:05,839 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 17:32:13,114 basehttp 154 "GET /files/download/courses/ HTTP/1.1" 200 500736
+INFO 2022-03-30 17:32:16,842 basehttp 154 "GET /files/download/courses/ HTTP/1.1" 200 500736
+INFO 2022-03-30 17:32:28,528 basehttp 154 "GET /files/download/courses/ HTTP/1.1" 200 500736
+INFO 2022-03-30 17:32:39,343 basehttp 154 "GET /files/download/courses/ HTTP/1.1" 200 500736
+WARNING 2022-03-30 17:33:06,246 log 228 Not Found: /
+WARNING 2022-03-30 17:33:06,247 basehttp 154 "GET / HTTP/1.1" 404 5552
+INFO 2022-03-30 17:33:14,157 basehttp 154 "GET /files/download/courses/ HTTP/1.1" 200 500736
+INFO 2022-03-30 17:33:33,607 basehttp 154 "GET /files/download/courses/ HTTP/1.1" 200 500736
+INFO 2022-03-30 17:34:09,642 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\files\views.py changed, reloading.
+INFO 2022-03-30 17:34:11,959 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 17:34:20,422 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\files\views.py changed, reloading.
+INFO 2022-03-30 17:34:22,771 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 17:35:11,167 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\files\urls.py changed, reloading.
+INFO 2022-03-30 17:35:13,889 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 17:35:39,300 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\files\urls.py changed, reloading.
+INFO 2022-03-30 17:35:41,962 autoreload 578 Watching for file changes with StatReloader
+WARNING 2022-03-30 17:36:08,347 log 228 Not Found: /media/download/template.xls
+WARNING 2022-03-30 17:36:08,348 basehttp 154 "GET /media/download/template.xls HTTP/1.1" 404 5651
+WARNING 2022-03-30 17:37:07,131 log 228 Not Found: /media/cluster_token.txt
+WARNING 2022-03-30 17:37:07,132 basehttp 154 "GET /media/cluster_token.txt HTTP/1.1" 404 5639
+INFO 2022-03-30 17:38:32,966 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\files\urls.py changed, reloading.
+INFO 2022-03-30 17:38:35,485 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 17:38:58,173 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\files\urls.py changed, reloading.
+INFO 2022-03-30 17:39:00,584 autoreload 578 Watching for file changes with StatReloader
+WARNING 2022-03-30 17:39:04,106 log 228 Not Found: /media/cluster_token.txt
+WARNING 2022-03-30 17:39:04,107 basehttp 154 "GET /media/cluster_token.txt HTTP/1.1" 404 5811
+WARNING 2022-03-30 17:39:09,378 log 228 Not Found: /media/cluster_token.txt
+WARNING 2022-03-30 17:39:09,379 basehttp 154 "GET /media/cluster_token.txt HTTP/1.1" 404 5811
+WARNING 2022-03-30 17:39:55,764 log 228 Unauthorized: /files/download/courses/
+WARNING 2022-03-30 17:39:55,764 basehttp 154 "GET /files/download/courses/ HTTP/1.1" 401 9994
+INFO 2022-03-30 17:42:33,010 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\files\urls.py changed, reloading.
+INFO 2022-03-30 17:42:35,375 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 17:42:42,719 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\files\views.py changed, reloading.
+INFO 2022-03-30 17:42:45,178 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 17:42:48,102 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\files\views.py changed, reloading.
+INFO 2022-03-30 17:42:50,551 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 17:42:58,554 basehttp 154 "GET /files/download/template HTTP/1.1" 301 0
+INFO 2022-03-30 17:42:58,573 basehttp 154 "GET /files/download/template/ HTTP/1.1" 200 284672
+INFO 2022-03-30 17:43:02,316 basehttp 154 "GET /files/download/template/ HTTP/1.1" 200 284672
+INFO 2022-03-30 17:43:57,346 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\files\urls.py changed, reloading.
+INFO 2022-03-30 17:44:00,336 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 17:45:36,068 basehttp 154 "GET /files/download/template/ HTTP/1.1" 200 284672
+INFO 2022-03-30 17:45:46,705 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\files\views.py changed, reloading.
+INFO 2022-03-30 17:45:49,245 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 17:51:30,628 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\files\models.py changed, reloading.
+INFO 2022-03-30 17:51:33,206 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 18:04:21,427 autoreload 578 Watching for file changes with StatReloader
+WARNING 2022-03-30 18:04:25,356 log 228 Unauthorized: /files/download/template/
+WARNING 2022-03-30 18:04:25,357 basehttp 154 "GET /files/download/template/ HTTP/1.1" 401 10005
+WARNING 2022-03-30 18:06:34,197 log 228 Not Found: /
+WARNING 2022-03-30 18:06:34,198 basehttp 154 "GET / HTTP/1.1" 404 5723
+INFO 2022-03-30 18:07:19,817 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\files\views.py changed, reloading.
+INFO 2022-03-30 18:07:22,100 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 18:07:35,459 basehttp 154 "GET /files/download/template/ HTTP/1.1" 200 284672
+INFO 2022-03-30 18:28:58,657 autoreload 578 Watching for file changes with StatReloader
+WARNING 2022-03-30 18:29:02,178 log 228 Unauthorized: /files/upload/courses/
+WARNING 2022-03-30 18:29:02,179 basehttp 154 "POST /files/upload/courses/ HTTP/1.1" 401 43
+INFO 2022-03-30 21:21:17,580 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 21:28:48,953 basehttp 154 "GET /users/?page=1&per_page=5&username=%E9%83%9D%E9%AB%98%E9%98%B3&phone=13833916349 HTTP/1.1" 200 499
+INFO 2022-03-30 21:29:14,989 basehttp 154 "GET /users/check/ HTTP/1.1" 200 25
+INFO 2022-03-30 21:29:40,516 basehttp 154 "GET /users/check/ HTTP/1.1" 200 25
+INFO 2022-03-30 21:39:20,723 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-30 21:47:01,777 basehttp 154 "POST /users/login/ HTTP/1.1" 200 233
+INFO 2022-03-30 21:47:42,775 basehttp 154 "OPTIONS /week2date/?week=1 HTTP/1.1" 200 0
+WARNING 2022-03-30 21:47:43,078 log 228 Bad Request: /week2date/
+WARNING 2022-03-30 21:47:43,079 basehttp 154 "GET /week2date/?week=1 HTTP/1.1" 400 23
