@@ -18,11 +18,22 @@ from classes.models import Class
 
 
 
-class CourseView(ListAPIView):
+class CourseView(GenericAPIView):
     permission_classes = [IsAuthenticated]
 
     serializer_class = CoursesSerializer
     queryset = Course.objects.all()
+
+    def post(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
 
     def get_queryset(self):
         # todo 根据 school_id grade class_number 等班级条件过滤
@@ -46,12 +57,23 @@ class CourseView(ListAPIView):
 
 
 
-class ChoicesApplicationsView(ListAPIView):
+class ChoicesApplicationsView(GenericAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = CoursesSerializer
     pagination_class = StandardResultsSetPagination
 
     queryset = Course.objects.all()
+
+    def post(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
 
     def get_queryset(self):
         # todo 数据获取并校验

@@ -2296,3 +2296,61 @@ INFO 2022-03-30 21:47:01,777 basehttp 154 "POST /users/login/ HTTP/1.1" 200 233
 INFO 2022-03-30 21:47:42,775 basehttp 154 "OPTIONS /week2date/?week=1 HTTP/1.1" 200 0
 WARNING 2022-03-30 21:47:43,078 log 228 Bad Request: /week2date/
 WARNING 2022-03-30 21:47:43,079 basehttp 154 "GET /week2date/?week=1 HTTP/1.1" 400 23
+INFO 2022-03-31 10:15:39,671 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-31 10:16:11,282 basehttp 154 "POST /users/login/ HTTP/1.1" 200 233
+WARNING 2022-03-31 10:16:20,841 log 228 Method Not Allowed: /courses/choices/0/
+WARNING 2022-03-31 10:16:20,842 basehttp 154 "POST /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 405 46
+INFO 2022-03-31 10:16:38,770 basehttp 154 "POST /courses/?page=1&per_page=5 HTTP/1.1" 200 1843
+INFO 2022-03-31 10:17:17,523 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\courses\views.py changed, reloading.
+INFO 2022-03-31 10:17:19,741 autoreload 578 Watching for file changes with StatReloader
+ERROR 2022-03-31 10:17:26,402 log 228 Internal Server Error: /courses/choices/0/
+Traceback (most recent call last):
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\courses\views.py", line 68, in post
+    queryset = self.filter_queryset(self.get_queryset())
+  File "F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\courses\views.py", line 88, in get_queryset
+    week = date2week(school_id=self.request.user.school_id_id,date=datetime.datetime.now())
+  File "F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\utils\timediff.py", line 12, in date2week
+    date = datetime.datetime.strptime(date, '%Y-%m-%d')
+TypeError: strptime() argument 1 must be str, not datetime.datetime
+ERROR 2022-03-31 10:17:26,404 basehttp 154 "POST /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 500 22123
+INFO 2022-03-31 10:18:51,358 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\utils\timediff.py changed, reloading.
+INFO 2022-03-31 10:18:53,553 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-31 10:18:58,828 basehttp 154 "POST /courses/choices/0/?page=1&per_page=5 HTTP/1.1" 200 1856
+INFO 2022-03-31 10:19:10,102 basehttp 154 "POST /courses/choices/1/?page=1&per_page=5 HTTP/1.1" 200 1857
+INFO 2022-03-31 10:21:18,964 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\users\views.py changed, reloading.
+INFO 2022-03-31 10:21:21,267 autoreload 578 Watching for file changes with StatReloader
+WARNING 2022-03-31 10:21:24,065 log 228 Forbidden: /users/check/
+WARNING 2022-03-31 10:21:24,065 basehttp 154 "POST /users/check/ HTTP/1.1" 403 31
+INFO 2022-03-31 10:21:28,194 basehttp 154 "POST /users/check/ HTTP/1.1" 200 25
+INFO 2022-03-31 10:22:09,078 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\users\views.py changed, reloading.
+INFO 2022-03-31 10:22:11,348 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-31 10:22:22,175 basehttp 154 "POST /users/?page=1&per_page=5&username=%E9%83%9D%E9%AB%98%E9%98%B3&phone=13833916349 HTTP/1.1" 200 499
+INFO 2022-03-31 10:26:08,486 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\users\views.py changed, reloading.
+INFO 2022-03-31 10:26:10,801 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-31 10:26:35,984 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\users\views.py changed, reloading.
+INFO 2022-03-31 10:26:38,252 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-31 10:33:19,489 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\users\views.py changed, reloading.
+INFO 2022-03-31 10:33:22,639 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-31 10:33:40,488 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-31 10:35:58,313 basehttp 154 "GET /users/?page=1&per_page=5&username=%E9%83%9D HTTP/1.1" 200 946
+INFO 2022-03-31 10:36:29,788 basehttp 154 "GET /users/?page=1&per_page=5&phone=13833916349 HTTP/1.1" 200 499
+INFO 2022-03-31 10:36:48,650 basehttp 154 "GET /users/?page=1&per_page=5&username=%E9%83%9D&phone=13833916349 HTTP/1.1" 200 499
+INFO 2022-03-31 10:37:29,702 basehttp 154 "GET /users/?page=1&per_page=5&username=%E9%83%9D&phone=13833916349 HTTP/1.1" 200 499

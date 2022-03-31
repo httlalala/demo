@@ -7,11 +7,13 @@ def utc2local(utctime):
 
 def date2week(school_id,date):
     first_week_time = utc2local(School.objects.get(id=school_id).first_week_date)
-
-    try:
-        date = datetime.datetime.strptime(date, '%Y-%m-%d')
-    except ValueError:
-        return -1
+    if isinstance(date,datetime.timedelta):
+        pass
+    elif isinstance(date,str):
+        try:
+            date = datetime.datetime.strptime(date, '%Y-%m-%d')
+        except ValueError:
+            return -1
     if date<first_week_time:
         return -1
     datediff = (date.date() - first_week_time.date()).days

@@ -7,6 +7,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from utils.filters import UserViewFilter
 from utils.permission import GradeManagerPermission, SuperManagerPermission
 from .models import User
 from .serializer import CreateUserSerializer,UpdateUserSerializer
@@ -17,7 +18,7 @@ from .serializer import CreateUserSerializer,UpdateUserSerializer
 
 
 class CheckUsername(APIView):
-    def get(self,request):
+    def post(self,request):
         username = request.data.get('username')
         school_id = request.data.get('school_id')
         try:
@@ -47,8 +48,11 @@ class UserView(ListAPIView):
     permission_classes = [IsAuthenticated,SuperManagerPermission]
     queryset = User.objects.all()
     filter_backends = [DjangoFilterBackend]
-    #添加过滤字段
-    filterset_fields = ["phone","school_id","username"]
+    filter_class = UserViewFilter
+    # 添加过滤字段
+    # filterset_fields = ["phone","school_id","username"]
+
+
 
     def get_queryset(self):
         return User.objects.filter(school_id=self.request.user.school_id)
