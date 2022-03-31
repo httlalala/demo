@@ -10,6 +10,9 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from users.models import User
+from rest_framework import filters
+
+from utils.filters import UserViewFilter
 from utils.pagination import StandardResultsSetPagination
 from utils.timediff import date2week
 from .serializer import CoursesSerializer
@@ -23,6 +26,8 @@ class CourseView(GenericAPIView):
 
     serializer_class = CoursesSerializer
     queryset = Course.objects.all()
+    filter_backends = [filters.OrderingFilter]
+    ordering_fields = '__all__'
 
     def post(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
@@ -63,6 +68,9 @@ class ChoicesApplicationsView(GenericAPIView):
     pagination_class = StandardResultsSetPagination
 
     queryset = Course.objects.all()
+
+    filter_backends = [filters.OrderingFilter]
+    ordering_fields = '__all__'
 
     def post(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())

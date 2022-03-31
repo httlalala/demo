@@ -11,7 +11,7 @@ from utils.filters import UserViewFilter
 from utils.permission import GradeManagerPermission, SuperManagerPermission
 from .models import User
 from .serializer import CreateUserSerializer,UpdateUserSerializer
-
+from rest_framework import filters
 
 
 # Create your views here.
@@ -47,10 +47,10 @@ class UserView(ListAPIView):
     serializer_class = UpdateUserSerializer
     permission_classes = [IsAuthenticated,SuperManagerPermission]
     queryset = User.objects.all()
-    filter_backends = [DjangoFilterBackend]
-    filter_class = UserViewFilter
+    filter_backends = [DjangoFilterBackend,filters.OrderingFilter]
     # 添加过滤字段
     # filterset_fields = ["phone","school_id","username"]
+    ordering_fields = '__all__'
 
 
 

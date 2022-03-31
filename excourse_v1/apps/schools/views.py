@@ -12,6 +12,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from utils.filters import UserViewFilter
 from utils.permission import GradeManagerPermission
 from applications.models import Application
 from courses.models import Course
@@ -43,6 +44,8 @@ class SchoolListView(ListAPIView,CreateAPIView):
     # filter_backends = [DjangoFilterBackend, filters.OrderingFilter]
     # filterset_fields = ["id", "name", 'province','city','region']
     # ordering_fields = ['id', 'name', 'province','city','region']
+    filter_backends = [filters.OrderingFilter]
+    ordering_fields = '__all__'
 
 
 

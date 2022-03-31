@@ -2354,3 +2354,25 @@ INFO 2022-03-31 10:35:58,313 basehttp 154 "GET /users/?page=1&per_page=5&usernam
 INFO 2022-03-31 10:36:29,788 basehttp 154 "GET /users/?page=1&per_page=5&phone=13833916349 HTTP/1.1" 200 499
 INFO 2022-03-31 10:36:48,650 basehttp 154 "GET /users/?page=1&per_page=5&username=%E9%83%9D&phone=13833916349 HTTP/1.1" 200 499
 INFO 2022-03-31 10:37:29,702 basehttp 154 "GET /users/?page=1&per_page=5&username=%E9%83%9D&phone=13833916349 HTTP/1.1" 200 499
+INFO 2022-03-31 10:57:43,166 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\users\views.py changed, reloading.
+INFO 2022-03-31 10:57:46,110 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-31 11:00:48,484 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-31 11:01:38,766 basehttp 154 "GET /users/?page=1&per_page=5&username=%E9%83%9D&phone=13833916349&ordering=username HTTP/1.1" 200 499
+INFO 2022-03-31 11:01:43,026 basehttp 154 "GET /users/?page=1&per_page=5&username=%E9%83%9D&ordering=username HTTP/1.1" 200 946
+INFO 2022-03-31 11:01:53,482 basehttp 154 "GET /users/?page=1&per_page=5&username=%E9%83%9D&ordering=-id HTTP/1.1" 200 946
+INFO 2022-03-31 11:03:25,919 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\applications\views.py changed, reloading.
+INFO 2022-03-31 11:03:28,236 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-31 11:03:46,367 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\applications\views.py changed, reloading.
+INFO 2022-03-31 11:03:48,662 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-31 11:04:22,512 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\schools\views.py changed, reloading.
+INFO 2022-03-31 11:04:24,899 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-31 11:04:44,953 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\courses\views.py changed, reloading.
+INFO 2022-03-31 11:04:47,153 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-31 11:13:26,140 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-31 11:13:48,418 basehttp 154 "GET /applications/mine/?type=applicant&page=1&per_page=5 HTTP/1.1" 200 52
+INFO 2022-03-31 11:14:03,330 basehttp 154 "POST /courses/?page=1&per_page=5 HTTP/1.1" 200 1840
+INFO 2022-03-31 11:14:57,186 basehttp 154 "POST /courses/?page=1&per_page=5&ordering=id HTTP/1.1" 200 1852
+INFO 2022-03-31 11:15:14,332 basehttp 154 "POST /courses/?page=1&per_page=5&ordering=grade HTTP/1.1" 200 1855
+INFO 2022-03-31 11:15:27,639 basehttp 154 "POST /courses/?page=1&per_page=5&ordering=weekday HTTP/1.1" 200 1857
+INFO 2022-03-31 11:22:26,917 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\users\views.py changed, reloading.
+INFO 2022-03-31 11:22:29,561 autoreload 578 Watching for file changes with StatReloader

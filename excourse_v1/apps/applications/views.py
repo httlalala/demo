@@ -2,7 +2,7 @@ import datetime
 
 from django.db.models import Q
 from django.shortcuts import render
-from rest_framework import status
+from rest_framework import status, filters
 from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView, GenericAPIView
 from rest_framework.permissions import IsAuthenticated
@@ -11,6 +11,7 @@ from rest_framework.views import APIView
 
 from classes.models import Class
 from utils import sendMessage
+from utils.filters import UserViewFilter
 from utils.permission import GradeManagerPermission
 from .serializer import ApplicationsSerializer
 from applications.models import Application
@@ -64,6 +65,8 @@ class GradeManagerApplicationsView(CreateAPIView,ListAPIView):
     permission_classes = [IsAuthenticated,GradeManagerPermission,]
     serializer_class = ApplicationsSerializer
     queryset = Application.objects.all()
+    filter_backends = [filters.OrderingFilter]
+    ordering_fields = '__all__'
 
     def get(self, request):
         type = self.request.query_params.get('type', None)
@@ -154,6 +157,8 @@ class MineApplicationsView(ListAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = ApplicationsSerializer
     queryset = Application.objects.all()
+    filter_backends = [filters.OrderingFilter]
+    ordering_fields = '__all__'
 
     def get_queryset(self):
         type = self.request.query_params.get('type',None)
