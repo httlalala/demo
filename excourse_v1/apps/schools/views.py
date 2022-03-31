@@ -39,6 +39,8 @@ class FirstWeekSetView(APIView):
 
 
 class SchoolListView(ListAPIView,CreateAPIView):
+    # permission_classes = [IsAuthenticated]
+
     serializer_class = SchoolSerializer
     queryset = School.objects.all()
     # filter_backends = [DjangoFilterBackend, filters.OrderingFilter]
@@ -46,6 +48,7 @@ class SchoolListView(ListAPIView,CreateAPIView):
     # ordering_fields = ['id', 'name', 'province','city','region']
     filter_backends = [filters.OrderingFilter]
     ordering_fields = '__all__'
+
 
 
 

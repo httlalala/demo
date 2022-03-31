@@ -2376,3 +2376,116 @@ INFO 2022-03-31 11:15:14,332 basehttp 154 "POST /courses/?page=1&per_page=5&orde
 INFO 2022-03-31 11:15:27,639 basehttp 154 "POST /courses/?page=1&per_page=5&ordering=weekday HTTP/1.1" 200 1857
 INFO 2022-03-31 11:22:26,917 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\users\views.py changed, reloading.
 INFO 2022-03-31 11:22:29,561 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-31 11:54:45,119 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-31 11:54:49,697 basehttp 154 "OPTIONS /week2date/ HTTP/1.1" 200 0
+WARNING 2022-03-31 11:54:50,061 log 228 Method Not Allowed: /week2date/
+WARNING 2022-03-31 11:54:50,062 basehttp 154 "GET /week2date/ HTTP/1.1" 405 45
+WARNING 2022-03-31 11:55:30,405 log 228 Method Not Allowed: /week2date/
+WARNING 2022-03-31 11:55:30,405 basehttp 154 "GET /week2date/ HTTP/1.1" 405 45
+WARNING 2022-03-31 11:55:49,421 log 228 Unauthorized: /week2date/
+WARNING 2022-03-31 11:55:49,422 basehttp 154 "POST /week2date/ HTTP/1.1" 401 43
+WARNING 2022-03-31 11:59:14,395 log 228 Unauthorized: /week2date/
+WARNING 2022-03-31 11:59:14,396 basehttp 154 "POST /week2date/ HTTP/1.1" 401 43
+WARNING 2022-03-31 11:59:21,056 log 228 Unauthorized: /week2date/
+WARNING 2022-03-31 11:59:21,057 basehttp 154 "POST /week2date/ HTTP/1.1" 401 43
+INFO 2022-03-31 12:01:50,055 basehttp 154 "OPTIONS /schools/ HTTP/1.1" 200 0
+INFO 2022-03-31 12:01:51,616 basehttp 154 "GET /schools/ HTTP/1.1" 200 652
+INFO 2022-03-31 12:02:39,913 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\schools\views.py changed, reloading.
+INFO 2022-03-31 12:02:42,257 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-31 12:02:45,612 basehttp 154 "GET /schools/ HTTP/1.1" 200 652
+INFO 2022-03-31 12:02:48,172 basehttp 154 "GET /schools/ HTTP/1.1" 200 652
+INFO 2022-03-31 12:03:00,694 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\schools\views.py changed, reloading.
+INFO 2022-03-31 12:03:03,074 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-31 12:05:26,773 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\excourse_v1\urls.py changed, reloading.
+INFO 2022-03-31 12:05:28,948 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-31 12:05:34,933 basehttp 154 "GET /schools/ HTTP/1.1" 200 652
+WARNING 2022-03-31 12:05:51,032 log 228 Method Not Allowed: /week2date/
+WARNING 2022-03-31 12:05:51,032 basehttp 154 "GET /week2date/ HTTP/1.1" 405 45
+WARNING 2022-03-31 12:05:59,683 log 228 Unauthorized: /week2date/
+WARNING 2022-03-31 12:05:59,683 basehttp 154 "POST /week2date/ HTTP/1.1" 401 43
+INFO 2022-03-31 12:06:08,461 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\excourse_v1\urls.py changed, reloading.
+INFO 2022-03-31 12:06:11,041 autoreload 578 Watching for file changes with StatReloader
+ERROR 2022-03-31 12:06:12,678 log 228 Internal Server Error: /week2date/
+Traceback (most recent call last):
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\excourse_v1\urls.py", line 68, in post
+    date = week2date(week=week,school_id=self.request.user.school_id_id)
+AttributeError: 'AnonymousUser' object has no attribute 'school_id_id'
+ERROR 2022-03-31 12:06:12,680 basehttp 154 "POST /week2date/ HTTP/1.1" 500 22028
+INFO 2022-03-31 12:06:37,690 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\excourse_v1\urls.py changed, reloading.
+INFO 2022-03-31 12:06:39,894 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-31 12:07:44,007 autoreload 578 Watching for file changes with StatReloader
+WARNING 2022-03-31 12:07:47,587 log 228 Unauthorized: /week2date/
+WARNING 2022-03-31 12:07:47,588 basehttp 154 "POST /week2date/ HTTP/1.1" 401 43
+WARNING 2022-03-31 12:08:46,467 log 228 Unauthorized: /week2date/
+WARNING 2022-03-31 12:08:46,468 basehttp 154 "POST /week2date/ HTTP/1.1" 401 43
+WARNING 2022-03-31 12:09:10,117 log 228 Unauthorized: /week2date/
+WARNING 2022-03-31 12:09:10,117 basehttp 154 "POST /week2date/ HTTP/1.1" 401 43
+WARNING 2022-03-31 12:09:34,794 log 228 Unauthorized: /week2date/
+WARNING 2022-03-31 12:09:34,794 basehttp 154 "POST /week2date/ HTTP/1.1" 401 43
+WARNING 2022-03-31 12:10:19,851 log 228 Unauthorized: /week2date/
+WARNING 2022-03-31 12:10:19,851 basehttp 154 "POST /week2date/ HTTP/1.1" 401 43
+WARNING 2022-03-31 12:14:07,236 log 228 Unauthorized: /week2date/
+WARNING 2022-03-31 12:14:07,236 basehttp 154 "POST /week2date/ HTTP/1.1" 401 43
+INFO 2022-03-31 12:14:23,239 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\schools\views.py changed, reloading.
+INFO 2022-03-31 12:14:27,147 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-31 16:11:59,965 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\schools\views.py changed, reloading.
+INFO 2022-03-31 16:12:03,915 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-31 16:12:59,761 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-03-31 16:13:25,862 basehttp 154 "OPTIONS /schools/ HTTP/1.1" 200 0
+WARNING 2022-03-31 16:13:39,535 log 228 Unauthorized: /schools/
+WARNING 2022-03-31 16:13:39,535 basehttp 154 "POST /schools/ HTTP/1.1" 401 43
+WARNING 2022-03-31 16:17:13,588 log 228 Unauthorized: /schools/
+WARNING 2022-03-31 16:17:13,588 basehttp 154 "POST /schools/ HTTP/1.1" 401 43
+WARNING 2022-03-31 16:17:56,472 log 228 Unauthorized: /schools/
+WARNING 2022-03-31 16:17:56,472 basehttp 154 "POST /schools/ HTTP/1.1" 401 43
+WARNING 2022-03-31 16:19:02,755 log 228 Unauthorized: /schools/
+WARNING 2022-03-31 16:19:02,755 basehttp 154 "POST /schools/ HTTP/1.1" 401 43
+WARNING 2022-03-31 16:22:03,667 log 228 Bad Request: /schools/
+WARNING 2022-03-31 16:22:03,667 basehttp 154 "POST /schools/ HTTP/1.1" 400 190
+INFO 2022-03-31 16:22:55,644 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\schools\views.py changed, reloading.
+INFO 2022-03-31 16:22:59,015 autoreload 578 Watching for file changes with StatReloader
+WARNING 2022-03-31 16:23:11,747 log 228 Bad Request: /schools/
+WARNING 2022-03-31 16:23:11,757 basehttp 154 "POST /schools/ HTTP/1.1" 400 190
+INFO 2022-03-31 16:23:43,949 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\schools\views.py changed, reloading.
+INFO 2022-03-31 16:23:47,537 autoreload 578 Watching for file changes with StatReloader
+WARNING 2022-03-31 16:23:49,048 log 228 Unauthorized: /schools/
+WARNING 2022-03-31 16:23:49,048 basehttp 154 "GET /schools/ HTTP/1.1" 401 43
+WARNING 2022-03-31 16:23:52,009 log 228 Unauthorized: /schools/
+WARNING 2022-03-31 16:23:52,010 basehttp 154 "GET /schools/ HTTP/1.1" 401 43
+WARNING 2022-03-31 16:24:03,475 log 228 Unauthorized: /schools/
+WARNING 2022-03-31 16:24:03,476 basehttp 154 "GET /schools/ HTTP/1.1" 401 43
+WARNING 2022-03-31 16:26:46,787 log 228 Unauthorized: /schools/
+WARNING 2022-03-31 16:26:46,787 basehttp 154 "GET /schools/ HTTP/1.1" 401 43
+WARNING 2022-03-31 16:28:19,599 log 228 Bad Request: /schools/
+WARNING 2022-03-31 16:28:19,599 basehttp 154 "POST /schools/ HTTP/1.1" 400 190
+INFO 2022-03-31 16:31:41,016 basehttp 154 "GET /schools/ HTTP/1.1" 200 652
+INFO 2022-03-31 16:32:28,255 basehttp 154 "OPTIONS /week2date/ HTTP/1.1" 200 0
+WARNING 2022-03-31 16:32:34,687 log 228 Method Not Allowed: /week2date/
+WARNING 2022-03-31 16:32:34,687 basehttp 154 "GET /week2date/ HTTP/1.1" 405 45
+WARNING 2022-03-31 16:33:10,417 log 228 Unauthorized: /week2date/
+WARNING 2022-03-31 16:33:10,417 basehttp 154 "POST /week2date/ HTTP/1.1" 401 43
+WARNING 2022-03-31 16:33:34,895 log 228 Unauthorized: /week2date/
+WARNING 2022-03-31 16:33:34,895 basehttp 154 "POST /week2date/ HTTP/1.1" 401 43
+WARNING 2022-03-31 16:34:35,580 log 228 Unauthorized: /week2date/
+WARNING 2022-03-31 16:34:35,580 basehttp 154 "POST /week2date/ HTTP/1.1" 401 43
+INFO 2022-03-31 16:36:10,546 basehttp 154 "POST /week2date/ HTTP/1.1" 200 12
+INFO 2022-03-31 16:43:03,977 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\schools\views.py changed, reloading.
+INFO 2022-03-31 16:43:07,737 autoreload 578 Watching for file changes with StatReloader

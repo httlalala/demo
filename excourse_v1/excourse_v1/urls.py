@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.http import HttpResponse
 from django.urls import path,include
 from rest_framework import status
+from rest_framework.generics import GenericAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -59,7 +60,7 @@ class index(views.View):
     def get(self,request):
         return HttpResponse("ok")
 
-class week2dateView(APIView):
+class week2dateView(GenericAPIView):
     permission_classes = [IsAuthenticated]
     def post(self,request):
         week = request.data.get('week',None)
