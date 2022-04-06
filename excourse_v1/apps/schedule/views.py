@@ -23,9 +23,9 @@ class ScheduleView(APIView):
     permission_classes = [IsAuthenticated]
     def get(self,request):
         # 获取week，weekday，order
-        week = request.data.get('week',1)
-        weekday = request.data.get('weekday',1)
-        order = request.data.get('order',1)
+        week = int(request.data.get('week',1))
+        weekday = int(request.data.get('weekday',1))
+        order = int(request.data.get('order',1))
         date = Schedule.objects.get(week=week,weekday=weekday,order=order)
         return Response({"msg":"获取成功","datetime":date},status=200)
 

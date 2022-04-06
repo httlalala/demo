@@ -14,7 +14,7 @@ class User(AbstractUser):
     # 我们需要的字段
     work_id = models.CharField(max_length=25,unique=True,null=True,verbose_name='工号')
     icon = models.ImageField(upload_to='users',null=True,verbose_name='头像')
-    phone = models.CharField(max_length=11,null=False,verbose_name='电话')
+    phone = models.CharField(unique=True,max_length=11,null=False,verbose_name='电话')
     email = models.CharField(max_length=256,null=True,verbose_name='邮箱')
     GRADE_CHOICES = (
         (0,'普通用户'),

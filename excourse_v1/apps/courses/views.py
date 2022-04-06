@@ -94,6 +94,8 @@ class ChoicesApplicationsView(GenericAPIView):
             return Response({'msg': "applicant_course_id参数无效或未指定"}, status=status.HTTP_404_NOT_FOUND)
         if week is None:
             week = date2week(school_id=self.request.user.school_id_id,date=datetime.datetime.now())
+        course_id = int(course_id)
+        week = int(week)
         # todo 获取 申请课程 对象
         try:
             applicant_course = Course.objects.get(id=course_id)

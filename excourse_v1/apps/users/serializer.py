@@ -7,6 +7,7 @@ import datetime
 from users.models import User
 from verifications.models import SMSCode
 from utils.timediff import utc2local
+from django.conf import settings
 
 class UpdateUserSerializer(serializers.ModelSerializer):
     sms_code = serializers.CharField(write_only=True, required=False)
@@ -16,21 +17,21 @@ class UpdateUserSerializer(serializers.ModelSerializer):
         read_only_fields = ('id',)
 
     def update(self, instance, validated_data):
-        print('update')
         phone = validated_data.pop('phone',None)
         password = validated_data.pop('password',None)
         if phone or password:  # 如果想要修改手机号
-            # todo 校验验证码
-            sms_code = validated_data.pop('sms_code',None)
-            try:
-                real_code = SMSCode.objects.get(phone=phone)
-            except SMSCode.DoesNotExist:
-                raise serializers.ValidationError('验证码错误')
-            timediff = (datetime.datetime.now() - utc2local(real_code.update_time)).seconds
-            if timediff > 300:
-                raise serializers.ValidationError('验证码已经失效')
-            elif real_code.code != sms_code:
-                raise serializers.ValidationError('验证码错误')
+            if settings.MESSAGE_CAN_USE:
+                # todo 校验验证码
+                sms_code = validated_data.pop('sms_code',None)
+                try:
+                    real_code = SMSCode.objects.get(phone=phone)
+                except SMSCode.DoesNotExist:
+                    raise serializers.ValidationError('验证码错误')
+                timediff = (datetime.datetime.now() - utc2local(real_code.update_time)).seconds
+                if timediff > 300:
+                    raise serializers.ValidationError('验证码已经失效')
+                elif real_code.code != sms_code:
+                    raise serializers.ValidationError('验证码错误')
 
             if password:  # 如果想要密码
                 # todo 加密
@@ -82,18 +83,19 @@ class CreateUserSerializer(serializers.ModelSerializer):
 
 
     def validate(self, attrs):
-        # todo 校验验证码
-        phone = attrs['phone']
-        sms_code = attrs['sms_code']
-        try:
-            real_code = SMSCode.objects.get(phone=phone)
-        except SMSCode.DoesNotExist:
-            raise serializers.ValidationError('验证码错误')
-        timediff = (datetime.datetime.now() -utc2local(real_code.update_time)).seconds
-        if timediff > 300:
-            raise serializers.ValidationError('验证码已经失效')
-        elif real_code.code != sms_code:
-            raise serializers.ValidationError('验证码错误')
+        if settings.MESSAGE_CAN_USE:
+            # todo 校验验证码
+            phone = attrs['phone']
+            sms_code = attrs['sms_code']
+            try:
+                real_code = SMSCode.objects.get(phone=phone)
+            except SMSCode.DoesNotExist:
+                raise serializers.ValidationError('验证码错误')
+            timediff = (datetime.datetime.now() -utc2local(real_code.update_time)).seconds
+            if timediff > 300:
+                raise serializers.ValidationError('验证码已经失效')
+            elif real_code.code != sms_code:
+                raise serializers.ValidationError('验证码错误')
         # todo 检查 年级管理员
         if attrs.get('is_grade') is not None:
             try:

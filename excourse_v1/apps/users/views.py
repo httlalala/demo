@@ -20,7 +20,7 @@ from rest_framework import filters
 class CheckUsername(APIView):
     def post(self,request):
         username = request.data.get('username')
-        school_id = request.data.get('school_id')
+        school_id = int(request.data.get('school_id'))
         try:
             user = User.objects.get(username=username,school_id=school_id)
         except User.DoesNotExist:

@@ -1,3 +1,4 @@
+import logging
 import os
 
 from django.http import FileResponse
@@ -23,7 +24,10 @@ class UploadCourseView(APIView):
     permission_classes = [IsAuthenticated,SuperManagerPermission]
     def post(self,request):
         myFile = request.FILES.get("file", None)
-        week_start = request.data.get("week_start", 1)
+        week_start = request.POST.get("week_start", 1)
+        week_start = int(week_start)
+        logger = logging.getLogger('django')
+        logger.info(request.POST.get("week_start", None))
         try:
             school = self.request.user.school_id
             if not school.first_week_date:
@@ -44,7 +48,7 @@ class UploadCourseView(APIView):
 
         if generateData(filename=filename,school_id=school.id,week_start=week_start):
             # todo 写数据库
-            UploadRecord.objects.create(path=filename,uploader_id=self.request.user,start_time=week2date(week_start))
+            UploadRecord.objects.create(path=filename,uploader_id=self.request.user,start_time=week2date(school_id=school.id,week=week_start))
             return Response({"msg":"上传成功"},status=status.HTTP_200_OK)
         else:
             return Response({"msg": "上传失败，请重试!"}, status=status.HTTP_403_FORBIDDEN)
@@ -58,8 +62,10 @@ class DownloadCourseView(APIView):
         is_application = request.data.get('is_application',False)
         path = os.path.join(settings.BASE_DIR,'media','download')
         week_start = request.data.get('week_start',1)
-        # week_end = request.data.get('week_end',self.request.user.school_id.week_num)
-        week_end = 5
+        week_end = request.data.get('week_end',self.request.user.school_id.week_num)
+        # week_end = 5
+        week_start = int(week_start)
+        week_end = int(week_end)
 
         filename,fname = saveFile(week_start, week_end, path=path, is_application=is_application)
         if filename is None:

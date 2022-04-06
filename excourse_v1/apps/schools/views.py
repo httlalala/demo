@@ -20,6 +20,14 @@ from schools.models import School
 from .serializer import SchoolSerializer
 
 
+class WeekNumView(APIView):
+    permission_classes = [IsAuthenticated]
+    def get(self,request):
+        school = self.request.user.school_id
+        print(school.week_num)
+        return Response(data=school.week_num,status=status.HTTP_200_OK)
+
+
 class FirstWeekSetView(APIView):
     permission_classes = [IsAuthenticated,GradeManagerPermission]
     serializer_class = SchoolSerializer

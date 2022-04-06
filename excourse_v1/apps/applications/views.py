@@ -84,8 +84,10 @@ class GradeManagerApplicationsView(CreateAPIView,ListAPIView):
 
     def post(self, request):
         applicant_course_id = request.data.get('applicant_course_id', None)
+        if applicant_course_id is None:
+            return Response({"msg": "提交的applicant_course_id有误"})
         try:
-            applicant_course_start_time = Course.objects.get(id=applicant_course_id).start_time
+            applicant_course_start_time = Course.objects.get(id=int(applicant_course_id)).start_time
         except Exception:
             return Response({"msg": "提交的applicant_course_id有误"})
         request.data['fail_time'] = applicant_course_start_time
@@ -135,13 +137,19 @@ class ApplicationsView(UpdateAPIView,CreateAPIView,ListAPIView):
             return res
 
     def post(self, request):
+        applicant_course_id = request.data.get('applicant_course_id',None)
+        if applicant_course_id is None:
+            return Response({"msg": "提交的applicant_course_id有误"})
         try:
-            applicant_course = Course.objects.get(id=request.data.get('applicant_course_id',None))
+            applicant_course = Course.objects.get(id=int(applicant_course_id))
         except Course.DoesNotExist:
             return Response({"msg":"提交的applicant_course_id有误"})
         if int(request.data.get('type')) == 0:
+            target_course_id = request.data.get('target_course_id', None)
+            if target_course_id is None:
+                return Response({"msg": "提交的target_course_id有误"})
             try:
-                target_course = Course.objects.get(id=request.data.get('target_course_id',None))
+                target_course = Course.objects.get(id=int(target_course_id))
             except Course.DoesNotExist:
                 return Response({"msg":"target_course_id"})
             request.data['fail_time'] = applicant_course.start_time
