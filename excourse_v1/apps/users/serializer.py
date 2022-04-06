@@ -4,6 +4,8 @@ from rest_framework.serializers import raise_errors_on_nested_writes
 from rest_framework.utils import model_meta
 from rest_framework_jwt.settings import api_settings
 import datetime
+
+from schools.models import School
 from users.models import User
 from verifications.models import SMSCode
 from utils.timediff import utc2local
@@ -11,6 +13,7 @@ from django.conf import settings
 
 class UpdateUserSerializer(serializers.ModelSerializer):
     sms_code = serializers.CharField(write_only=True, required=False)
+    school_name = serializers.SerializerMethodField()
     class Meta:
         model = User
         fields = '__all__'
@@ -41,6 +44,8 @@ class UpdateUserSerializer(serializers.ModelSerializer):
                 instance.phone=phone
 
 
+        instance.school_name = School.objects.get(id = instance.school_id)
+
 
         raise_errors_on_nested_writes('update', self, validated_data)
         info = model_meta.get_field_info(instance)
@@ -64,7 +69,8 @@ class UpdateUserSerializer(serializers.ModelSerializer):
         return instance
 
 
-
+    def get_school_name(self,obj):
+        return obj.school_id.name
 
 
 
@@ -72,8 +78,7 @@ class UpdateUserSerializer(serializers.ModelSerializer):
 
 
 class CreateUserSerializer(serializers.ModelSerializer):
-
-
+    school_name = serializers.SerializerMethodField()
     sms_code = serializers.CharField(write_only=True,required=True)
     token = serializers.CharField(read_only=True)
     class Meta:
@@ -128,6 +133,6 @@ class CreateUserSerializer(serializers.ModelSerializer):
 
         return user
 
-
-
+    def get_school_name(self,obj):
+        return obj.school_id.name
 

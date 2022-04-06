@@ -16,5 +16,7 @@ def jwt_response_payload_handler(token, user=None, request=None):
     return {
         'user_id':user.id,
         'username':user.username,
-        'token': token
+        'token': token,
+        'school_id':user.school_id_id,
+        'school_name':user.school_id.name
     }

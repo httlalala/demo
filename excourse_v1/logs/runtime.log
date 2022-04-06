@@ -2616,3 +2616,63 @@ INFO 2022-04-06 09:54:25,645 autoreload 203 F:\LearningFiles\Django_restframewor
 INFO 2022-04-06 09:54:28,019 autoreload 578 Watching for file changes with StatReloader
 INFO 2022-04-06 09:59:10,080 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\courses\views.py changed, reloading.
 INFO 2022-04-06 09:59:12,660 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-04-06 10:56:38,274 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-04-06 10:57:01,607 basehttp 154 "GET /users/?page=1&per_page=5&username=%E9%83%9D%E9%AB%98%E9%98%B3&phone=13833916349 HTTP/1.1" 200 499
+INFO 2022-04-06 10:57:18,407 basehttp 154 "GET /users/?page=1&per_page=5 HTTP/1.1" 200 2321
+INFO 2022-04-06 10:57:35,680 basehttp 154 "GET /users/?page=1&per_page=5&username=%E9%83%9D%E9%AB%98%E9%98%B3&phone=13833916349 HTTP/1.1" 200 499
+INFO 2022-04-06 10:58:10,408 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\users\views.py changed, reloading.
+INFO 2022-04-06 10:58:13,242 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-04-06 11:01:35,032 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\users\views.py changed, reloading.
+INFO 2022-04-06 11:01:37,636 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-04-06 11:01:50,559 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-04-06 11:02:09,992 basehttp 154 "GET /users/?page=1&per_page=5&username=%E9%83%9D%E9%AB%98%E9%98%B3&phone=13833916349 HTTP/1.1" 200 499
+INFO 2022-04-06 11:02:13,411 basehttp 154 "GET /users/?page=1&per_page=5&username=%E9%83%9D&phone=13833916349 HTTP/1.1" 200 499
+INFO 2022-04-06 11:02:23,585 basehttp 154 "GET /users/?page=1&per_page=5&username=&phone=13833916349 HTTP/1.1" 200 499
+INFO 2022-04-06 11:02:32,964 basehttp 154 "GET /users/?page=1&per_page=5&username=%E7%8E%8B HTTP/1.1" 200 2338
+INFO 2022-04-06 11:03:36,171 basehttp 154 "GET /users/?page=1&per_page=5&username=%E7%8E%8B%E9%AB%98%E9%98%B3 HTTP/1.1" 200 52
+INFO 2022-04-06 11:03:40,046 basehttp 154 "GET /users/?page=1&per_page=5&username=%E9%AB%98%E9%98%B3 HTTP/1.1" 200 499
+INFO 2022-04-06 11:03:45,325 basehttp 154 "GET /users/?page=1&per_page=5&username=%E9%AB%98%E9%98%B3%E9%83%9D HTTP/1.1" 200 52
+INFO 2022-04-06 11:03:49,864 basehttp 154 "GET /users/?page=1&per_page=5&username=%E9%AB%98%E9%98%B3 HTTP/1.1" 200 499
+INFO 2022-04-06 14:27:56,645 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\users\serializer.py changed, reloading.
+INFO 2022-04-06 14:27:59,068 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-04-06 14:32:19,249 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\users\serializer.py changed, reloading.
+INFO 2022-04-06 14:32:21,767 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-04-06 14:33:32,894 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\users\serializer.py changed, reloading.
+INFO 2022-04-06 14:33:35,383 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-04-06 14:33:42,266 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\users\serializer.py changed, reloading.
+INFO 2022-04-06 14:33:44,953 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-04-06 14:34:31,572 autoreload 578 Watching for file changes with StatReloader
+INFO 2022-04-06 14:34:46,929 basehttp 154 "PUT /applications/manager/4/ HTTP/1.1" 200 689
+INFO 2022-04-06 14:35:02,649 basehttp 154 "GET /users/?page=1&per_page=5&username=%E9%83%9D HTTP/1.1" 200 1004
+INFO 2022-04-06 14:35:51,961 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\users\utils.py changed, reloading.
+INFO 2022-04-06 14:35:54,491 autoreload 578 Watching for file changes with StatReloader
+ERROR 2022-04-06 14:36:00,446 log 228 Internal Server Error: /users/login/
+Traceback (most recent call last):
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 145, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "H:\Anaconda\envs\django\lib\site-packages\django\core\handlers\base.py", line 143, in _get_response
+    response = response.render()
+  File "H:\Anaconda\envs\django\lib\site-packages\django\template\response.py", line 106, in render
+    self.content = self.rendered_content
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\response.py", line 70, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\renderers.py", line 103, in render
+    allow_nan=not self.strict, separators=separators
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\utils\json.py", line 25, in dumps
+    return json.dumps(*args, **kwargs)
+  File "H:\Anaconda\envs\django\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "H:\Anaconda\envs\django\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "H:\Anaconda\envs\django\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "H:\Anaconda\envs\django\lib\site-packages\rest_framework\utils\encoders.py", line 67, in default
+    return super().default(obj)
+  File "H:\Anaconda\envs\django\lib\json\encoder.py", line 180, in default
+    o.__class__.__name__)
+TypeError: Object of type 'School' is not JSON serializable
+ERROR 2022-04-06 14:36:00,450 basehttp 154 "POST /users/login/ HTTP/1.1" 500 112143
+INFO 2022-04-06 14:36:23,368 autoreload 203 F:\LearningFiles\Django_restframework\exchangecourse\excourse_v1\apps\users\utils.py changed, reloading.
+INFO 2022-04-06 14:36:25,581 autoreload 578 Watching for file changes with StatReloader

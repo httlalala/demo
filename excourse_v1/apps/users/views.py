@@ -48,10 +48,10 @@ class UserView(ListAPIView):
     permission_classes = [IsAuthenticated,SuperManagerPermission]
     queryset = User.objects.all()
     filter_backends = [DjangoFilterBackend,filters.OrderingFilter]
-    # 添加过滤字段
-    # filterset_fields = ["phone","school_id","username"]
+    # 添加过滤字段 不写的话就是全部字段都可以用来过滤
+    # filterset_fields = ["phone","username"]
+    filterset_class = UserViewFilter
     ordering_fields = '__all__'
-
 
 
     def get_queryset(self):
