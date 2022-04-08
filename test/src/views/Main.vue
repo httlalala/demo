@@ -26,7 +26,7 @@
           </div>
           <div style=" padding: 5px;display:flex;align-items: center;">
               <img src="@/assets/bg.jpg" style="width:20px;height:20px;border-radius:20px;,margin-right:10px;background-color:#ccc"/>
-              <span style="margin-left:3px">张三</span>
+              <span style="margin-left:3px">{{username}}</span>
           </div>
       </div>
   </el-header>
@@ -85,12 +85,13 @@
 </template>
 
 <script>
-
+    // import store from '@/vuex/store'
     export default {
         name:'Main',
         data(){
           return{
-            activeIndex:'4'
+            activeIndex:'4',
+            username:'1',
           }
         },
         methods: {
@@ -127,6 +128,23 @@
                 })
             },
 
+        },
+        created(){
+         const token=window.sessionStorage.getItem("token")
+         const user_id=window.sessionStorage.getItem("user_id")
+         const username=window.sessionStorage.getItem("username")
+         this.$data.username=username
+         console.log(user_id) 
+        //  this.$http.get('http://47.97.193.46:8001/users/'+user_id+'/',{
+        //    headers:{
+        //      'Authorization':'JWT '+ token
+        //    },
+        //    params:{
+        //      'pk':user_id
+        //    }
+        //  }).then(res=>{
+        //     console.log(res)
+        //  })
         }
     }
 </script>
